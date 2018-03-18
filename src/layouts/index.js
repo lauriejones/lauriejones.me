@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { ThemeProvider, injectGlobal } from 'styled-components';
 import styledNormalize from 'styled-normalize';
 
-import GrowLayout from '@nib-components/grow-layout';
+import GrowLayout from '../components/GrowLayout';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
