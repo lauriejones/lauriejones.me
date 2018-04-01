@@ -16,6 +16,21 @@ export const rainbowBg = keyframes`
   }
 `;
 
+export const rainbowFill = keyframes`
+  0% {
+    fill: ${colors.green};
+  }
+  33% {
+    fill: ${colors.blue};
+  }
+  66% {
+    fill: ${colors.yellow};
+  }
+  100% {
+    fill: ${colors.green};
+  }
+`;
+
 export const rainbowText = keyframes`
   0% {
     color: ${colors.green};

@@ -45,7 +45,7 @@ injectGlobal`
 
   body {
     /* background-color: #222; */
-    background-color: ${theme.colors.eigengrau};
+    background-color: ${theme.colors.nearWhite};
     color: ${theme.copy.color};
     font-family: ${theme.copy.fontFamily};
     font-size: ${theme.copy.fontSize};

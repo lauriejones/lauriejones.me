@@ -7,7 +7,7 @@ import {colors} from '../Theme';
 const BaseLink = props => {
   const {
     component: Component, 
-    size, color, //eslint-disable-line no-unused-vars
+    size, color, muted, //eslint-disable-line no-unused-vars
     ...otherProps
   } = props;
   return <Component {...otherProps}/>;
@@ -23,7 +23,7 @@ BaseLink.defaultProps = {
 
 const Link = styled(BaseLink)`
   margin: 0;
-  color: ${props => props.theme.link.color};
+  color: ${props => props.muted ? 'currentColor' : props.theme.link.color};
   font-family: ${({theme}) => theme.copy && theme.copy.fontFamily || 'sans-serif'};
   text-decoration-skip: ink;
 

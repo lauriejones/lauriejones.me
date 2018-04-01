@@ -37,12 +37,12 @@ const IndexPage = () => (
       </Margin> */}
 
       <Margin bottom={4}>
-        <Copy size="large" lineHeight="title" color={props => props.theme.colors.white87}>Hi, I'm <strong>Laurie Jones</strong> and I'm a front-end developer and UI/UX designer based in Newcastle, Australia.</Copy>
+        <Copy size="large" lineHeight="title">Hi, I'm <strong>Laurie Jones</strong> and I'm a front-end developer and UI/UX designer based in Newcastle, Australia.</Copy>
       </Margin>
 
-      <Margin bottom={4}>
+      {/* <Margin bottom={4}>
         <Hr/>
-      </Margin>
+      </Margin> */}
 
       {/* CSS · JS · React · Styled Components */}
 
@@ -71,7 +71,7 @@ const IndexPage = () => (
       {/* <Margin vertical={4}>
         <Hr/>
       </Margin>
-      
+       */}
       <Copy>
         <Link href="https://twitter.com/laurie_jones">Twitter</Link>
         <span> &middot; </span> 
@@ -80,7 +80,9 @@ const IndexPage = () => (
         <Link href="https://npm.im/lauriejones">npm</Link>
         <span> &middot; </span> 
         <Link href="https://au.linkedin.com/in/lauriejonesme">Linked In</Link>
-      </Copy> */}
+        <span> &middot; </span> 
+        <Link href="mailto:hello@lauriejones.me">hello@lauriejones.me</Link>
+      </Copy>
       
     </Panel>
   </div>

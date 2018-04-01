@@ -91,7 +91,7 @@ export default {
   copy: {
     fontFamily: fonts.system,
     fontSize: typeScale[7],
-    color: colors.white87,
+    color: colors.black87,
     lineHeight: lineHeights.copy
   },
 

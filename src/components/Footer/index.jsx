@@ -22,11 +22,11 @@ const FooterWrapper = styled.footer`
 
 const Footer = () => (
   <FooterWrapper>
-    <Padding all={3} horizontal={{sm: 4, xl: 5}}>
-      <Copy size="small" lineHeight="solid" align="center">
-        Made with <Link href="#" color={props => props.theme.colors.midGrey}>Gatsby</Link> &amp; <Link href="#" color={props => props.theme.colors.midGrey}>Styled Components</Link>.
+    {/* <Padding all={3} horizontal={{sm: 4, xl: 5}}>
+      <Copy size="small" lineHeight="solid" align="center" color={props => props.theme.colors.white54}>
+        Made with <Link href="#" muted>Gatsby</Link> &amp; <Link href="#" muted>Styled Components</Link>.
       </Copy>
-    </Padding>
+    </Padding> */}
   </FooterWrapper>
 );
 

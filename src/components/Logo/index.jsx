@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import {rainbowFill} from '../../utils';
 
 const Svg = styled.svg`
   width: 1rem;
   height: 1rem;
+  margin-bottom: -.25em;
+  padding: 1rem;
+
   font-size: 0;
   line-height: 0;
-  margin-bottom: -.25em;
 `;
 
 const Path = styled.path`
   fill: ${props => props.fill};
 
-  &:hover,
-  &:focus {
-    fill: red;
+  ${Svg}:hover & {
+    animation: ${rainbowFill} 4s infinite;
   }
 `;
 
