@@ -79,6 +79,7 @@ const TemplateWrapper = ({ children }) => (
     <div>
       <Layout>
         <Helmet>
+          <html lang="en-AU"/>
           <title>Laurie Jones &mdash; Frontend developer &amp; designer based in Newcastle, Australia"</title>
           <meta name="description" content="Laurie Jones is a frontend developer and designer focused on design systems"/>
           <meta name="keywords" content="laurie jones, frontend developer, react developer, ui designer, ux designer, design systems, designops"/>
