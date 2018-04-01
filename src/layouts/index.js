@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { ThemeProvider, injectGlobal } from 'styled-components';
+import styled, { ThemeProvider, injectGlobal } from 'styled-components';
+import breakpoint from 'styled-components-breakpoint';
 import styledNormalize from 'styled-normalize';
 
 import GrowLayout from '../components/GrowLayout';
@@ -43,6 +44,8 @@ injectGlobal`
   }
 
   body {
+    /* background-color: #222; */
+    background-color: ${theme.colors.eigengrau};
     color: ${theme.copy.color};
     font-family: ${theme.copy.fontFamily};
     font-size: ${theme.copy.fontSize};
@@ -50,10 +53,31 @@ injectGlobal`
   }
 `;
 
+const Layout = styled.div`
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  grid-template-rows: 3rem 1fr 3rem;
+  min-height: 100vh;
+`;
+
+const Content = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 2;
+
+  ${breakpoint('md')`
+    grid-row: 1 / span 2;
+    grid-column: 2 / span 1;
+  `}
+`;
+
 const TemplateWrapper = ({ children }) => (
   <ThemeProvider theme={theme}> 
     <div>
-      <GrowLayout.Wrapper>
+      <Layout>
         <Helmet>
           <title>Laurie Jones &mdash; Frontend developer &amp; designer based in Newcastle, Australia"</title>
           <meta name="description" content="Laurie Jones is a frontend developer and designer focused on design systems"/>
@@ -67,13 +91,11 @@ const TemplateWrapper = ({ children }) => (
           <meta name="theme-color" content={props => props.theme.colors.white}/>
         </Helmet>
         <Header />
-        <GrowLayout.Content>
-          <div>
-            {children()}
-          </div>
-        </GrowLayout.Content>
+        <Content>
+          {children()}
+        </Content>
         <Footer/>
-      </GrowLayout.Wrapper>
+      </Layout>
     </div>
   </ThemeProvider>
 );

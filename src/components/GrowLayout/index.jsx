@@ -10,13 +10,13 @@ OuterWrapper.displayName = 'OuterWrapper';
 
 const InnerWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   min-height: 100vh;
 `;
 InnerWrapper.displayName = 'InnerWrapper';
 
 const Content = styled.div`
-  flex: 1 0 auto;
+  flex: 1 1 auto;
   ${({flex}) => flex && `
     display: flex;
   `}

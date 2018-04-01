@@ -8,19 +8,25 @@ const breakpoints = {
   xxxl: 1600
 };
   
-const container = '1280px';
+const container = `${breakpoints.xl}px`;
 
-export const colors = {
+const colors = {
   green: '#39c689',
   blue: '#2b97fd', //'#0C34FF', //'#2b97fd',
   purple: '#5D2CDA', // #7d5ae0
   yellow: '#ffeb3b',
+  eigengrau: '#16161d',
   darkGrey: '#333',
   grey: '#777',
   midGrey: '#999',
   lightGrey: '#eee',
   nearWhite: '#f4f4f4',
-  white: '#fff'
+  white: '#fff',
+
+  black87: 'hsla(0, 0%, 0%, .87)',
+  black54: 'hsla(0, 0%, 0%, .54)',
+  white87: 'hsla(0, 0%, 100%, .87)',
+  white54: 'hsla(0, 0%, 100%, .54)'
 }
 
 const spacing = {
@@ -85,12 +91,12 @@ export default {
   copy: {
     fontFamily: fonts.system,
     fontSize: typeScale[7],
-    color: colors.darkGrey,
+    color: colors.white87,
     lineHeight: lineHeights.copy
   },
 
   link: {
-    color: colors.green,
+    color: colors.blue,
     focus: colors.yellow
   }
 };

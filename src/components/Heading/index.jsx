@@ -39,6 +39,7 @@ export const BaseHeadingComponent = props => {
 };
 
 const Heading = styled(BaseHeadingComponent)`
+  max-width: 30em;
   font-family: ${props => props.theme.copy.fontFamily};
   margin: 0;
   line-height: 1;

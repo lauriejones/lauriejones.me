@@ -1,25 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
+import breakpoint from 'styled-components-breakpoint';
 import {Padding} from 'styled-components-spacing';
 import Container from '../Container';
 import Copy from '../Copy';
 import Link from '../Link';
 import Logo from '../Logo';
-import {rainbowBg} from '../../utils';
 
 const FooterWrapper = styled.footer`
-  background-color: ${props => props.theme.colors.darkGrey};
-  color: ${props => props.theme.colors.midGrey};
+  grid-column: 1 / span 2;
+  grid-row: 3 / span 1;
+
+  ${breakpoint('md')`
+    grid-column: 2 / span 1;
+  `}
+
+  /* background-color: #ddd; */
+  /* background-color: ${props => props.theme.colors.darkGrey}; */
+  color: #666;
 `;
 
 const Footer = () => (
   <FooterWrapper>
-    <Padding all={3}>
-      <Container>
-        <Copy size="small">
-          Made with thanks to <Link href="#" color={props => props.theme.colors.midGrey}>Gatsby</Link> &amp; <Link href="#" color={props => props.theme.colors.midGrey}>Styled Components</Link>.
-        </Copy>
-      </Container>
+    <Padding all={3} horizontal={{sm: 4, xl: 5}}>
+      <Copy size="small" lineHeight="solid" align="center">
+        Made with <Link href="#" color={props => props.theme.colors.midGrey}>Gatsby</Link> &amp; <Link href="#" color={props => props.theme.colors.midGrey}>Styled Components</Link>.
+      </Copy>
     </Padding>
   </FooterWrapper>
 );

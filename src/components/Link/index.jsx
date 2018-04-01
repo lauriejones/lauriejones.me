@@ -23,9 +23,9 @@ BaseLink.defaultProps = {
 
 const Link = styled(BaseLink)`
   margin: 0;
-  color: ${({color}) => color || 'currentColor'};
+  color: ${props => props.theme.link.color};
   font-family: ${({theme}) => theme.copy && theme.copy.fontFamily || 'sans-serif'};
-  line-height: ${({theme}) => theme.copy && theme.copy.lineHeight};
+  text-decoration-skip: ink;
 
   &:focus {
     background-color: ${props => props.theme.link.focus};
