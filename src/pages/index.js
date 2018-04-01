@@ -72,7 +72,7 @@ const IndexPage = () => (
         <Hr/>
       </Margin>
        */}
-      <Copy>
+      <Copy measure={false}>
         <Link href="https://twitter.com/laurie_jones">Twitter</Link>
         <span> &middot; </span> 
         <Link href="https://github.com/lauriejones">GitHub</Link>

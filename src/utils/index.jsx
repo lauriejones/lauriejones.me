@@ -24,7 +24,7 @@ export const rainbowFill = keyframes`
     fill: ${colors.blue};
   }
   66% {
-    fill: ${colors.yellow};
+    fill: ${colors.purple};
   }
   100% {
     fill: ${colors.green};
