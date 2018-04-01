@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 
 const Panel = props => (
   <Wrapper bg={props.bg} color={props.color}>
-    <Padding all={{xs: 3, sm: 4}} horizontal={{xl: 5}}>
+    <Padding vertical={{xs: 4}} horizontal={{xs: 3, sm: 4, xl: 5}}>
       <Container>
         {props.children}
       </Container>

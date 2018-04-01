@@ -14,8 +14,21 @@ import headshot from '../assets/lauriejones.jpg';
 const Hr = styled.hr`
   margin: 0;
   border: none;
-  border-top: .125rem solid hsla(0, 0%, 100%, .2);
+  border-top: .125rem solid hsla(0, 0%, 0%, .1);
   max-width: 2rem;
+`;
+
+const HideBelowMd = styled.div`
+  display: none;
+  ${breakpoint('md')`
+    display: block;
+  `}
+`;
+
+const HideAboveMd = styled.div`
+  ${breakpoint('md')`
+    display: none;
+  `}
 `;
 
 const CenteredBelowMd = styled.div`
@@ -25,34 +38,36 @@ const CenteredBelowMd = styled.div`
   `}
 `;
 
+const CircleImage = styled.img`
+  border-radius: 50%;
+`;
+
 const IndexPage = () => (
   <div>
     <Panel>
-      {/* <Heading size={3}>Laurie Jones</Heading> */}
       
-      {/* <Margin bottom={3}>
-        <CenteredBelowMd>
-          <img src={headshot} style={{borderRadius: '50%'}} width="180" alt="A headshot of Laurie Jones with tropical plants in the background"/>
-        </CenteredBelowMd>
-      </Margin> */}
+      <HideAboveMd>
+        <Margin bottom={3}>
+          <CenteredBelowMd>
+            <CircleImage 
+              src={headshot} 
+              width="180" 
+              height="180" 
+              alt="A headshot of Laurie Jones with tropical plants in the background"
+            />
+          </CenteredBelowMd>
+        </Margin>
+      </HideAboveMd>
 
       <Margin bottom={4}>
-        <Copy size="large" lineHeight="title">Hi, I'm <strong>Laurie Jones</strong> and I'm a front-end developer and UI/UX designer based in Newcastle, Australia.</Copy>
+        <Copy size="large" lineHeight="title">Hi 👋, I'm <strong>Laurie Jones</strong> and I'm a front-end developer and UI/UX designer based in Newcastle, Australia.</Copy>
       </Margin>
 
-      {/* <Margin bottom={4}>
+      <Margin bottom={4}>
         <Hr/>
-      </Margin> */}
-
-      {/* CSS · JS · React · Styled Components */}
+      </Margin>
 
       <Grid>
-
-        <Grid.Unit size={{lg: 'min' }}>
-          <Padding right={4}>
-            <img src={headshot} style={{borderRadius: '50%'}} width="180" alt="A headshot of Laurie Jones with tropical plants in the background"/>
-          </Padding>
-        </Grid.Unit>
 
         <Grid.Unit size={{lg: 'min' }}>
           <Margin bottom={3}>
@@ -63,15 +78,28 @@ const IndexPage = () => (
             <Copy>I build things with CSS, JS, React and Styled Components.</Copy>
           </Margin>
         </Grid.Unit>
+
+        <HideBelowMd>
+          <Grid.Unit size={{lg: 'min' }}>
+            <Padding left={{lg: 4}}>
+              <CircleImage 
+                src={headshot} 
+                width="180" 
+                height="180" 
+                alt="A headshot of Laurie Jones with tropical plants in the background"
+              />
+            </Padding>
+          </Grid.Unit>
+        </HideBelowMd>
         
       </Grid>
 
       {/* <Link component={GatsbyLink} to="/page-2/">Go to page two!</Link> */}
 
-      {/* <Margin vertical={4}>
+      <Margin vertical={4}>
         <Hr/>
       </Margin>
-       */}
+      
       <Copy measure={false}>
         <Link href="https://twitter.com/laurie_jones">Twitter</Link>
         <span> &middot; </span> 
