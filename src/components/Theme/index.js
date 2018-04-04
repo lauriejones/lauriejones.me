@@ -12,7 +12,8 @@ const container = `${breakpoints.xl}px`;
 
 const colors = {
   green: '#39c689',
-  blue: '#2b97fd', //'#0C34FF', //'#2b97fd',
+  blue: '#0060FF', //'#0C34FF', //'#2b97fd',
+  darkBlue: '#00307F',
   purple: '#5D2CDA', // #7d5ae0
   yellow: '#ffeb3b',
   eigengrau: '#16161d',
@@ -40,14 +41,12 @@ const spacing = {
 };
 
 const typeScale = {
-  1: '6rem',
-  2: '5rem',
-  3: '3rem',
-  4: '2.25rem',
-  5: '1.5rem',
-  6: '1.25rem',
-  7: '1rem',
-  8: '.875rem'
+  1: '3rem',
+  2: '2.25rem',
+  3: '1.5rem',
+  4: '1.25rem',
+  5: '1rem',
+  6: '.875rem'
 };
 
 const lineHeights = {
@@ -90,7 +89,7 @@ export default {
 
   copy: {
     fontFamily: fonts.system,
-    fontSize: typeScale[7],
+    fontSize: typeScale[5],
     color: colors.black87,
     lineHeight: lineHeights.copy
   },

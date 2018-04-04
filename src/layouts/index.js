@@ -10,6 +10,7 @@ import GrowLayout from '../components/GrowLayout';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import theme from '../components/Theme';
+import Link from '../components/Link';
 
 import favIcon from './favicons/favicon.ico';
 import favIcon16 from './favicons/favicon-16x16.png';
@@ -44,7 +45,6 @@ injectGlobal`
   }
 
   body {
-    /* background-color: #222; */
     background-color: ${theme.colors.nearWhite};
     color: ${theme.copy.color};
     font-family: ${theme.copy.fontFamily};
@@ -74,21 +74,45 @@ const Content = styled.div`
   `}
 `;
 
+const SkipLink = Link.extend`
+  display: block;
+  left: -9999em;
+  outline: none;
+  top: -9999em;
+  
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+
+  &:focus {
+    clip: auto;
+    height: auto;
+    left: 8px;
+    top: 8px;
+    width: auto;
+    z-index: 100000;
+  }
+`;
+
+
 const TemplateWrapper = ({ children }) => (
   <ThemeProvider theme={theme}> 
     <div>
+      <SkipLink href="#maincontent">Skip to main content</SkipLink>
       <Layout>
         <Helmet>
           <html lang="en-AU"/>
           <title>Laurie Jones &mdash; Frontend developer &amp; designer based in Newcastle, Australia"</title>
           <meta name="description" content="Laurie Jones is a frontend developer and designer focused on design systems"/>
-          <meta name="keywords" content="laurie jones, frontend developer, react developer, ui designer, ux designer, design systems, designops"/>
+          <meta name="keywords" content="laurie jones, frontend developer, react developer, ui designer, ux designer, design systems, designops, Newcastle, Australia"/>
           <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon}/>
           <link rel="icon" href={favIcon}/>
           <link rel="icon" type="image/png" sizes="32x32" href={favIcon32}/>
           <link rel="icon" type="image/png" sizes="16x16" href={favIcon16}/>
-          <link rel="mask-icon" href={safariPinnedTab} color={props => props.theme.colors.green}/>
-          <meta name="msapplication-TileColor" content={props => props.theme.colors.green}/>
+          <link rel="mask-icon" href={safariPinnedTab} color={props => props.theme.colors.blue}/>
+          <meta name="msapplication-TileColor" content={props => props.theme.colors.blue}/>
           <meta name="theme-color" content={props => props.theme.colors.white}/>
         </Helmet>
         <Header />

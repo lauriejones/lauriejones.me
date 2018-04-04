@@ -29,12 +29,12 @@ const Link = styled(BaseLink)`
 
   &:focus {
     background-color: ${props => props.theme.link.focus};
-    color: ${props => props.theme.colors.darkGrey};
+    color: ${props => props.theme.colors.darkBlue};
   }
 
   &:hover {
     background-color: ${props => props.theme.link.focus};
-    color: ${props => props.theme.colors.darkGrey};
+    color: ${props => props.theme.colors.darkBlue};
   }
 `;
 
@@ -44,7 +44,7 @@ Link.propTypes = {
 };
 
 Link.defaultProps = {
-  color: colors.green,
+  color: colors.blue,
   size: 'medium'
 };
 

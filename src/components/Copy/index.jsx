@@ -58,17 +58,17 @@ const Copy = styled(BaseCopy)`
   ${({size, theme}) => {
     if (size === 'small') {
       return `
-        font-size: ${theme.typeScale[8]};
+        font-size: ${theme.typeScale[6]};
       `;
     }
     if (size === 'large') {
       return `
-        font-size: ${theme.typeScale[5]};
+        font-size: ${theme.typeScale[4]};
       `;
     }
     if (size === 'medium') {
       return `
-        font-size: ${theme.typeScale[7]};
+        font-size: ${theme.typeScale[5]};
       `;
     }
   }}

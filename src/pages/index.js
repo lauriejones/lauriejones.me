@@ -43,7 +43,7 @@ const CircleImage = styled.img`
 `;
 
 const IndexPage = () => (
-  <div>
+  <main id="maincontent">
     <Panel>
       
       <HideAboveMd>
@@ -60,22 +60,18 @@ const IndexPage = () => (
       </HideAboveMd>
 
       <Margin bottom={4}>
-        <Copy size="large" lineHeight="title">Hi 👋, I'm <strong>Laurie Jones</strong> and I'm a front-end developer and UI/UX designer based in Newcastle, Australia.</Copy>
+        <Heading size={2}><strong>Laurie Jones</strong> &mdash; front&ndash;end developer and designer based in Newcastle, Australia.</Heading>
       </Margin>
 
-      <Margin bottom={4}>
-        <Hr/>
-      </Margin>
-
-      <Grid>
+      <Grid wrap={false}>
 
         <Grid.Unit size={{lg: 'min' }}>
           <Margin bottom={3}>
-            <Copy>I work in the DesignOps team at <Link href="https://twitter.com/nibhealthfunds">@nibhealthfunds</Link> focusing on building and maintaining our <Link href="https://design.nib.com.au">Design System</Link>.</Copy>
+            <Copy size="large" lineHeight="copy">Part of DesignOps at <Link href="https://twitter.com/nibhealthfunds">@nibhealthfunds</Link>. Focused on improving our <Link href="https://design.nib.com.au">design system</Link> and processes.</Copy>
           </Margin>
           
           <Margin bottom={3}>
-            <Copy>I build things with CSS, JS, React and Styled Components.</Copy>
+            <Copy>React, Styled Components, HTML.</Copy>
           </Margin>
         </Grid.Unit>
 
@@ -96,7 +92,7 @@ const IndexPage = () => (
 
       {/* <Link component={GatsbyLink} to="/page-2/">Go to page two!</Link> */}
 
-      <Margin vertical={4}>
+      {/* <Margin vertical={4}>
         <Hr/>
       </Margin>
       
@@ -111,9 +107,9 @@ const IndexPage = () => (
         <span> &middot; </span> 
         <Link href="mailto:hello@lauriejones.me">hello@lauriejones.me</Link>
       </Copy>
-      
+       */}
     </Panel>
-  </div>
+  </main>
 );
 
 export default IndexPage;

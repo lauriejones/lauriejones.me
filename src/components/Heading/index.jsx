@@ -3,28 +3,34 @@ import PropTypes from 'prop-types';
 import styled, {css} from 'styled-components';
 
 const h1 = () => css`
-  font-size: ${props => props.theme.typeScale[3]};
+  font-size: ${props => props.theme.typeScale[1]};
+  font-weight: 400;
   line-height: ${props => props.theme.lineHeight.title}
 `;
 
 const h2 = () => css`
-  font-size: ${props => props.theme.typeScale[4]};
+  font-size: ${props => props.theme.typeScale[2]};
+  font-weight: 400;
 `;
 
 const h3 = () => css`
-  font-size: ${props => props.theme.typeScale[5]};
+  font-size: ${props => props.theme.typeScale[3]};
+  font-weight: 400;
 `;
 
 const h4 = () => css`
-  font-size: ${props => props.theme.typeScale[6]};
+  font-size: ${props => props.theme.typeScale[4]};
+  font-weight: 400;
 `;
 
 const h5 = () => css`
-  font-size: ${props => props.theme.typeScale[7]};
+  font-size: ${props => props.theme.typeScale[5]};
+  font-weight: 400;
 `;
 
 const h6 = () => css`
-  font-size: ${props => props.theme.typeScale[8]};
+  font-size: ${props => props.theme.typeScale[6]};
+  font-weight: 400;
 `;
 
 export const BaseHeadingComponent = props => {
@@ -39,10 +45,10 @@ export const BaseHeadingComponent = props => {
 };
 
 const Heading = styled(BaseHeadingComponent)`
-  max-width: 30em;
+  max-width: 24em;
   font-family: ${props => props.theme.copy.fontFamily};
   margin: 0;
-  line-height: 1;
+  line-height: 1.25;
   ${({size}) => size === 1 && h1()}
   ${({size}) => size === 2 && h2()}
   ${({size}) => size === 3 && h3()}

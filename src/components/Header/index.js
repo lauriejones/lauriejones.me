@@ -49,13 +49,10 @@ const Vertical = styled.div`
 
 const Header = () => (
   <HeaderWrapper>
-    <InlineBlockLink to="/">
-      <Logo fill="#333"/>
-    </InlineBlockLink>
-
+    <Logo fill="#333"/>
     <Vertical>
       <Padding all={3}>
-        <Copy size="small" color={props => props.theme.colors.black54}>
+        <Copy size="small" lineHeight="solid" color={props => props.theme.colors.black87}>
           <Link muted href="https://twitter.com/laurie_jones">Twitter</Link>
           <span> &middot; </span> 
           <Link muted href="https://github.com/lauriejones">GitHub</Link>
