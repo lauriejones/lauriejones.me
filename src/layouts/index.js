@@ -54,9 +54,13 @@ injectGlobal`
 `;
 
 const Layout = styled.div`
-  display: grid;
-  grid-template-columns: 3rem 1fr;
-  grid-template-rows: 3rem 1fr 3rem;
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    grid-template-rows: 3rem 1fr 3rem;
+  }
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 `;
 
@@ -64,14 +68,17 @@ const Content = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
   
-  grid-row: 2 / span 1;
-  grid-column: 1 / span 2;
+  @supports (display: grid) {
+    grid-row: 2 / span 1;
+    grid-column: 1 / span 2;
 
-  ${breakpoint('md')`
-    grid-row: 1 / span 2;
-    grid-column: 2 / span 1;
-  `}
+    ${breakpoint('md')`
+      grid-row: 1 / span 2;
+      grid-column: 2 / span 1;
+    `}
+  }
 `;
 
 const SkipLink = Link.extend`

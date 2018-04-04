@@ -13,20 +13,24 @@ const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   
-  ${breakpoint('md')`
-    flex-direction: column;
-  `}
+  @supports (display: grid) {
+    ${breakpoint('md')`
+      flex-direction: column;
+    `}
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 2;
+  }
 
-  grid-row: 1 / span 1;
-  grid-column: 1 / span 2;
   border-bottom: 1px solid rgba(0, 0, 0, .1);
 
-  ${breakpoint('md')`
-    grid-row: 1 / span 3;
-    grid-column: 1 / span 1;
-    border-bottom: 0;
-    border-right: 1px solid rgba(0, 0, 0, .1);
-  `}
+  @supports (display: grid) {
+    ${breakpoint('md')`
+      grid-row: 1 / span 3;
+      grid-column: 1 / span 1;
+      border-bottom: 0;
+      border-right: 1px solid rgba(0, 0, 0, .1);
+    `}
+  }
 
   line-height: 1;
   font-size: 0;
@@ -40,11 +44,16 @@ const InlineBlockLink = styled(GatsbyLink)`
   display: inline-block;
 `;
 
-const Vertical = styled.div`  
-  ${breakpoint('md')`
-    transform: rotate(-90deg);
-    white-space: nowrap;
-  `}
+const Vertical = styled.div`
+
+  @supports (display: grid) {
+
+    ${breakpoint('md')`
+      transform: rotate(-90deg);
+      white-space: nowrap;
+    `}
+  
+  }
 `;
 
 const Header = () => (
