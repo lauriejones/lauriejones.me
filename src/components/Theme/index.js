@@ -20,14 +20,17 @@ const colors = {
   darkGrey: '#333',
   grey: '#777',
   midGrey: '#999',
+  lightishGrey: '#ddd',
   lightGrey: '#eee',
   nearWhite: '#f4f4f4',
   white: '#fff',
 
   black87: 'hsla(0, 0%, 0%, .87)',
   black54: 'hsla(0, 0%, 0%, .54)',
+  black06: 'hsla(0, 0%, 0%, .06)',
   white87: 'hsla(0, 0%, 100%, .87)',
-  white54: 'hsla(0, 0%, 100%, .54)'
+  white54: 'hsla(0, 0%, 100%, .54)',
+  white06: 'hsla(0, 0%, 100%, .06)'
 }
 
 const spacing = {

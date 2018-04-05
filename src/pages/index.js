@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import Grid from 'styled-components-grid';
-import {Margin, Padding} from 'styled-components-spacing';
+import {Margin, Padding, px, py, mr, mb} from 'styled-components-spacing';
 import GatsbyLink from 'gatsby-link';
 import Heading from '../components/Heading';
 import Link from '../components/Link';
@@ -39,7 +39,22 @@ const CenteredBelowMd = styled.div`
 `;
 
 const CircleImage = styled.img`
+  display: inline-block;
+  width: 11.25rem;
+  height: 11.25rem;
   border-radius: 50%;
+`;
+
+const Tag = styled.span`
+  ${px(3)};
+  ${py(2)};
+  ${mb(1)};
+  ${mr(1)};
+  display: inline-block;
+  border-radius: 100px;
+  background-color: ${props => props.theme.colors.black06};
+  font-size: ${props => props.theme.typeScale[6]};
+  line-height: ${props => props.theme.lineHeights.solid};
 `;
 
 const IndexPage = () => (
@@ -51,8 +66,6 @@ const IndexPage = () => (
           <CenteredBelowMd>
             <CircleImage 
               src={headshot} 
-              width="180" 
-              height="180" 
               alt="A headshot of Laurie Jones with tropical plants in the background"
             />
           </CenteredBelowMd>
@@ -67,21 +80,26 @@ const IndexPage = () => (
 
         <Grid.Unit size={{lg: 'min' }}>
           <Margin bottom={3}>
-            <Copy size="large" lineHeight="copy">Part of DesignOps at <Link href="https://twitter.com/nibhealthfunds">@nibhealthfunds</Link>. Focused on improving our <Link href="https://design.nib.com.au">design system</Link> and processes.</Copy>
+            <Copy size="large" lineHeight="copy">Currently working in DesignOps at <Link href="https://twitter.com/nibhealthfunds">@nibhealthfunds</Link>. Focused on improving our <Link href="https://design.nib.com.au">design system</Link>, tooling and processes.</Copy>
           </Margin>
           
-          <Margin bottom={3}>
-            <Copy>React, Styled Components, HTML.</Copy>
+          <Margin bottom={4}>
+            <Copy>Passionate about empowering teams to quickly build consistent, high-quality user interfaces.</Copy>
           </Margin>
+
+          <Tag>React</Tag>
+          <Tag>Styled Components</Tag>
+          <Tag>CSS</Tag>
+          <Tag>JS</Tag>
+          <Tag>HTML</Tag>
+          <Tag>a11y</Tag>
         </Grid.Unit>
 
         <HideBelowMd>
           <Grid.Unit size={{lg: 'min' }}>
-            <Padding left={{lg: 4}}>
+            <Padding left={4}>
               <CircleImage 
                 src={headshot} 
-                width="180" 
-                height="180" 
                 alt="A headshot of Laurie Jones with tropical plants in the background"
               />
             </Padding>
