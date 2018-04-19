@@ -66,7 +66,7 @@ const Header = () => (
           <span> &middot; </span> 
           <Link muted href="https://github.com/lauriejones">GitHub</Link>
           <span> &middot; </span> 
-          <Link muted href="https://npm.im/lauriejones">npm</Link>
+          <Link muted href="https://www.npmjs.com/~lauriejones">npm</Link>
           <span> &middot; </span> 
           <Link muted href="https://au.linkedin.com/in/lauriejonesme">Linked In</Link>
         </Copy>
