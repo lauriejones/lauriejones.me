@@ -84,7 +84,7 @@ const IndexPage = () => (
           </Margin>
           
           <Margin bottom={4}>
-            <Copy>Passionate about empowering teams to quickly build consistent, high-quality user interfaces.</Copy>
+            <Copy>Passionate about empowering teams to quickly build consistent, high-quality and inclusive user interfaces.</Copy>
           </Margin>
 
           <Tag>React</Tag>
