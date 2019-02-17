@@ -107,14 +107,19 @@ const IndexPage = () => (
         </HideBelowMd>
         
       </Grid>
-
-      {/* <Link component={GatsbyLink} to="/page-2/">Go to page two!</Link> */}
-
+      
       {/* <Margin vertical={4}>
         <Hr/>
       </Margin>
       
       <Copy measure={false}>
+        Say hello: 
+        <Link href="https://twitter.com/laurie_jones">Twitter</Link>
+        <span> &middot; </span>
+        <Link href="mailto:hello@lauriejones.me">hello@lauriejones.me</Link>
+      </Copy>
+
+      {/* <Copy measure={false}>
         <Link href="https://twitter.com/laurie_jones">Twitter</Link>
         <span> &middot; </span> 
         <Link href="https://github.com/lauriejones">GitHub</Link>
