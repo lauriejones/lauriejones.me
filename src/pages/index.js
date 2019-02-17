@@ -8,7 +8,7 @@ import Link from '../components/Link';
 import Panel from '../components/Panel';
 import Copy from '../components/Copy';
 
-import headshot from '../assets/lauriejones.jpg';
+import headshot from '../assets/headshot2019.jpg';
 
 const Hr = styled.hr`
   margin: 0;
@@ -37,11 +37,22 @@ const CenteredBelowMd = styled.div`
   `}
 `;
 
+const transparentBlue = 'hsla(217, 100%, 50%, .25)';
+const transparentPurple = 'hsla(257, 70%, 50%, .25)';
+
+const GradientImageWrapper = styled.div`
+  font-size: 0;
+  background: linear-gradient(135deg, ${transparentBlue}, ${transparentPurple});
+  border-radius: 50%;
+`;
+
 const CircleImage = styled.img`
   display: inline-block;
   width: 11.25rem;
   height: 11.25rem;
   border-radius: 50%;
+  /* border: 1px solid ${props => props.theme.colors.black15}; */
+  mix-blend-mode: overlay;
 `;
 
 const Tag = styled.span`
@@ -97,10 +108,12 @@ const IndexPage = () => (
         <HideBelowMd>
           <Grid.Unit size={{lg: 'min' }}>
             <Padding left={4}>
-              <CircleImage 
-                src={headshot} 
-                alt="A headshot of Laurie Jones with tropical plants in the background"
-              />
+              <GradientImageWrapper>
+                <CircleImage 
+                  src={headshot} 
+                  alt="A headshot of Laurie Jones with tropical plants in the background"
+                />
+              </GradientImageWrapper>
             </Padding>
           </Grid.Unit>
         </HideBelowMd>

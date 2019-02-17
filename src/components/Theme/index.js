@@ -27,6 +27,7 @@ const colors = {
 
   black87: 'hsla(0, 0%, 0%, .87)',
   black54: 'hsla(0, 0%, 0%, .54)',
+  black15: 'hsla(0, 0%, 0%, .15)',
   black06: 'hsla(0, 0%, 0%, .06)',
   white87: 'hsla(0, 0%, 100%, .87)',
   white54: 'hsla(0, 0%, 100%, .54)',
