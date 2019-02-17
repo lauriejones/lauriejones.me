@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import Grid from 'styled-components-grid';
 import {Margin, Padding, px, py, mr, mb} from 'styled-components-spacing';
-import GatsbyLink from 'gatsby-link';
 import Heading from '../components/Heading';
 import Link from '../components/Link';
 import Panel from '../components/Panel';
@@ -107,7 +106,7 @@ const IndexPage = () => (
         </HideBelowMd>
         
       </Grid>
-      
+
       {/* <Margin vertical={4}>
         <Hr/>
       </Margin>
