@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Svg = styled.svg`
@@ -23,8 +24,8 @@ const Logo = props => {
   );
   }
 
-Logo.PropTypes = {
-  size: React.PropTypes.string
+Logo.propTypes = {
+  size: PropTypes.string
 }
 
 Logo.defaultProps = {

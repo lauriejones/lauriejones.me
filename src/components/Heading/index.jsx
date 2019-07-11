@@ -58,9 +58,9 @@ const Heading = styled(BaseHeadingComponent)`
 `;
 
 Heading.propTypes = {
-  size: React.PropTypes.number.isRequired,
-  color: React.PropTypes.string,
-  children: React.PropTypes.node
+  size: PropTypes.number.isRequired,
+  color: PropTypes.string,
+  children: PropTypes.node
 };
 
 Heading.displayName = 'Heading';
