@@ -11,7 +11,7 @@ const BaseCopy = props => {
 };
 
 BaseCopy.propTypes = {
-  component: PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.func])
+  component: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 };
 
 BaseCopy.defaultProps = {
