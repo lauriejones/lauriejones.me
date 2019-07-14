@@ -66,7 +66,7 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  
+
   @supports (display: grid) {
     grid-row: 2 / span 1;
     grid-column: 1 / span 2;
@@ -83,7 +83,7 @@ const SkipLink = styled(Link)`
   left: -9999em;
   outline: none;
   top: -9999em;
-  
+
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
   overflow: hidden;
@@ -103,26 +103,43 @@ const SkipLink = styled(Link)`
 const TemplateWrapper = ({ children }) => (
   <ThemeProvider theme={theme}>
     <div>
-      <Globals/>
+      <Globals />
       <SkipLink href="#maincontent">Skip to main content</SkipLink>
       <Layout>
         <Helmet>
-          <html lang="en-AU"/>
-          <title>Laurie Jones &mdash; Frontend developer &amp; designer based in Newcastle, Australia</title>
-          <meta name="description" content="Laurie Jones is a frontend developer and designer focused on design systems"/>
-          <meta name="keywords" content="laurie jones, frontend developer, react developer, ui designer, ux designer, design systems, designops, Newcastle, Australia"/>
-          <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon}/>
-          <link rel="icon" href={favIcon}/>
-          <link rel="icon" type="image/png" sizes="32x32" href={favIcon32}/>
-          <link rel="icon" type="image/png" sizes="16x16" href={favIcon16}/>
-          <link rel="mask-icon" href={safariPinnedTab} color={props => props.theme.colors.blue}/>
-          <meta name="msapplication-TileColor" content={props => props.theme.colors.blue}/>
-          <meta name="theme-color" content={props => props.theme.colors.white}/>
+          <html lang="en-AU" />
+          <title>
+            Laurie Jones &mdash; Frontend developer &amp; designer based in
+            Newcastle, Australia
+          </title>
+          <meta
+            name="description"
+            content="Laurie Jones is a frontend developer and designer focused on design systems"
+          />
+          <meta
+            name="keywords"
+            content="laurie jones, frontend developer, react developer, ui designer, ux designer, design systems, designops, Newcastle, Australia"
+          />
+          <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon} />
+          <link rel="icon" href={favIcon} />
+          <link rel="icon" type="image/png" sizes="32x32" href={favIcon32} />
+          <link rel="icon" type="image/png" sizes="16x16" href={favIcon16} />
+          <link
+            rel="mask-icon"
+            href={safariPinnedTab}
+            color={props => props.theme.colors.blue}
+          />
+          <meta
+            name="msapplication-TileColor"
+            content={props => props.theme.colors.blue}
+          />
+          <meta
+            name="theme-color"
+            content={props => props.theme.colors.white}
+          />
         </Helmet>
         <Header />
-        <Content>
-          {children}
-        </Content>
+        <Content>{children}</Content>
       </Layout>
     </div>
   </ThemeProvider>
@@ -130,6 +147,6 @@ const TemplateWrapper = ({ children }) => (
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
-}
+};
 
-export default TemplateWrapper
+export default TemplateWrapper;

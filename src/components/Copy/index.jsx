@@ -6,33 +6,39 @@ const BaseCopy = props => {
   const {
     // eslint-disable-next-line no-unused-vars
     component: Component,
-    measure, size, align, color, lineHeight, //eslint-disable-line no-unused-vars
-    ...otherProps} = props;
-  return (<Component {...otherProps}/>);
+    measure,
+    size,
+    align,
+    color,
+    lineHeight, //eslint-disable-line no-unused-vars
+    ...otherProps
+  } = props;
+  return <Component {...otherProps} />;
 };
 
 BaseCopy.propTypes = {
-  component: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+  component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 };
 
 BaseCopy.defaultProps = {
-  component: 'p'
+  component: 'p',
 };
 
 const Copy = styled(BaseCopy)`
   margin: 0;
-  color: ${({color}) => color || 'currentColor'};
-  font-family: ${({theme}) => theme.copy && theme.copy.fontFamily || 'sans-serif'};
-  /* line-height: ${({theme}) => theme.copy && theme.copy.lineHeight}; */
+  color: ${({ color }) => color || 'currentColor'};
+  font-family: ${({ theme }) =>
+    (theme.copy && theme.copy.fontFamily) || 'sans-serif'};
+  /* line-height: ${({ theme }) => theme.copy && theme.copy.lineHeight}; */
 
-  ${({measure}) => {
+  ${({ measure }) => {
     if (measure) {
       return 'max-width: 24em;';
     }
     return '';
   }}
 
-  ${({align, measure}) => {
+  ${({ align, measure }) => {
     if (measure) {
       if (align === 'center') {
         return `
@@ -58,7 +64,7 @@ const Copy = styled(BaseCopy)`
     return '';
   }}
   
-  ${({size, theme}) => {
+  ${({ size, theme }) => {
     if (size === 'small') {
       return `
         font-size: ${theme.typeScale[6]};
@@ -77,7 +83,7 @@ const Copy = styled(BaseCopy)`
     return '';
   }}
   
-  ${({lineHeight, theme}) => {
+  ${({ lineHeight, theme }) => {
     if (lineHeight === 'solid') {
       return `
         line-height: ${theme.lineHeights.solid};
@@ -102,14 +108,14 @@ Copy.propTypes = {
   color: PropTypes.string,
   align: PropTypes.oneOf(['left', 'center', 'right']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  lineHeight: PropTypes.oneOf(['solid', 'title', 'copy'])
+  lineHeight: PropTypes.oneOf(['solid', 'title', 'copy']),
 };
 
 Copy.defaultProps = {
   measure: true,
   align: 'left',
   size: 'medium',
-  lineHeight: 'copy'
+  lineHeight: 'copy',
 };
 
 export default Copy;

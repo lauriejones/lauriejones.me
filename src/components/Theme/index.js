@@ -5,9 +5,9 @@ const breakpoints = {
   lg: 800,
   xl: 960,
   xxl: 1200,
-  xxxl: 1600
+  xxxl: 1600,
 };
-  
+
 const container = `${breakpoints.xl}px`;
 
 export const colors = {
@@ -30,8 +30,8 @@ export const colors = {
   black06: 'hsla(0, 0%, 0%, .06)',
   white87: 'hsla(0, 0%, 100%, .87)',
   white54: 'hsla(0, 0%, 100%, .54)',
-  white06: 'hsla(0, 0%, 100%, .06)'
-}
+  white06: 'hsla(0, 0%, 100%, .06)',
+};
 
 const spacing = {
   0: '0',
@@ -40,7 +40,7 @@ const spacing = {
   3: '1rem',
   4: '2rem',
   5: '4rem',
-  6: '8rem'
+  6: '8rem',
 };
 
 const typeScale = {
@@ -49,18 +49,18 @@ const typeScale = {
   3: '1.5rem',
   4: '1.25rem',
   5: '1rem',
-  6: '.875rem'
+  6: '.875rem',
 };
 
 const lineHeights = {
-  solid: 1, 
-  title: 1.25, 
-  copy: 1.5
+  solid: 1,
+  title: 1.25,
+  copy: 1.5,
 };
 
 const tracking = {
   normal: 'normal',
-  caps: '1.5px'
+  caps: '1.5px',
 };
 
 const fonts = {
@@ -77,8 +77,8 @@ const fonts = {
     'franklin gothic medium', 'century gothic', /* Windows stuff */
     'Liberation Sans', /* Linux */
     sans-serif; /* Everything else */
-  `
-}
+  `,
+};
 
 export default {
   breakpoints,
@@ -94,11 +94,11 @@ export default {
     fontFamily: fonts.system,
     fontSize: typeScale[5],
     color: colors.black87,
-    lineHeight: lineHeights.copy
+    lineHeight: lineHeights.copy,
   },
 
   link: {
     color: colors.blue,
-    focus: colors.yellow
-  }
+    focus: colors.yellow,
+  },
 };

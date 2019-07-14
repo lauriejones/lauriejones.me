@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Svg = styled.svg`
   width: 1rem;
   height: 1rem;
-  margin-bottom: -.25em;
+  margin-bottom: -0.25em;
   padding: 1rem;
 
   font-size: 0;
@@ -13,23 +13,23 @@ const Svg = styled.svg`
 `;
 
 const Logo = props => {
-  const {fill} = props;
+  const { fill } = props;
   return (
     <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 40">
       <path
         fill={fill}
-        d='M26,40c-5,0,-10-5-10-10H0V0h36v30C36,36,32,40,26,40z'
+        d="M26,40c-5,0,-10-5-10-10H0V0h36v30C36,36,32,40,26,40z"
       />
     </Svg>
   );
-  }
+};
 
 Logo.propTypes = {
-  fill: PropTypes.string
-}
+  fill: PropTypes.string,
+};
 
 Logo.defaultProps = {
-  size: 'medium'
-}
+  size: 'medium',
+};
 
 export default Logo;

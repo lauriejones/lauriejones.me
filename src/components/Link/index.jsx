@@ -2,29 +2,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import {colors} from '../Theme';
+import { colors } from '../Theme';
 
 const BaseLink = props => {
   const {
-    component: Component, 
-    size, color, muted, //eslint-disable-line no-unused-vars
+    component: Component,
+    size,
+    color,
+    muted, //eslint-disable-line no-unused-vars
     ...otherProps
   } = props;
-  return <Component {...otherProps}/>;
-}
+  return <Component {...otherProps} />;
+};
 
 BaseLink.propTypes = {
-  component: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+  component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 };
 
 BaseLink.defaultProps = {
-  component: 'a'
+  component: 'a',
 };
 
 const Link = styled(BaseLink)`
   margin: 0;
-  color: ${props => props.muted ? 'currentColor' : props.theme.link.color};
-  font-family: ${({theme}) => theme.copy && theme.copy.fontFamily || 'sans-serif'};
+  color: ${props => (props.muted ? 'currentColor' : props.theme.link.color)};
+  font-family: ${({ theme }) =>
+    (theme.copy && theme.copy.fontFamily) || 'sans-serif'};
   text-decoration-skip: ink;
 
   &:focus {
@@ -40,12 +43,12 @@ const Link = styled(BaseLink)`
 
 Link.propTypes = {
   color: PropTypes.string,
-  size: PropTypes.oneOf(['small', 'medium', 'large'])
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 Link.defaultProps = {
   color: colors.blue,
-  size: 'medium'
+  size: 'medium',
 };
 
 export default Link;
