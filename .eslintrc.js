@@ -9,5 +9,8 @@ module.exports = {
   rules: {
     "no-confusing-arrow": 0,
     "react/prop-types": 1
+  },
+  env: {
+    "browser": true
   }
 };
