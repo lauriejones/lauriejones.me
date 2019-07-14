@@ -2,12 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import {Padding} from 'styled-components-spacing';
-import GatsbyLink from 'gatsby-link';
 import Link from '../Link';
-import Container from '../Container';
 import Logo from '../Logo';
 import Copy from '../Copy';
-import {rainbowBg, TextCenter} from '../../utils';
+import {rainbowBg} from '../../utils';
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -38,10 +36,6 @@ const HeaderWrapper = styled.header`
   /* background-color: hsla(0, 0%, 100%, 0.05); */
   /* background: ${props => props.theme.colors.blue}; */
   /* animation: ${rainbowBg} 16s infinite; */
-`;
-
-const InlineBlockLink = styled(GatsbyLink)`
-  display: inline-block;
 `;
 
 const Vertical = styled.div`

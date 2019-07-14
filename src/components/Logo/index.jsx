@@ -13,7 +13,7 @@ const Svg = styled.svg`
 `;
 
 const Logo = props => {
-  const { size, fill } = props;
+  const {fill} = props;
   return (
     <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 40">
       <path
@@ -25,7 +25,7 @@ const Logo = props => {
   }
 
 Logo.propTypes = {
-  size: PropTypes.string
+  fill: PropTypes.string
 }
 
 Logo.defaultProps = {

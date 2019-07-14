@@ -6,18 +6,17 @@ import breakpoint from 'styled-components-breakpoint';
 import styledNormalize from 'styled-normalize';
 
 import Header from '../Header';
-import Footer from '../Footer';
 import theme from '../Theme';
 import Link from '../Link';
 
 import favIcon from '../../assets/favicons/favicon.ico';
 import favIcon16 from '../../assets/favicons/favicon-16x16.png';
 import favIcon32 from '../../assets/favicons/favicon-32x32.png';
-import androidChrome192 from '../../assets/favicons/android-chrome-192x192.png';
-import androidChrome512 from '../../assets/favicons/android-chrome-512x512.png';
+// import androidChrome192 from '../../assets/favicons/android-chrome-192x192.png';
+// import androidChrome512 from '../../assets/favicons/android-chrome-512x512.png';
 import appleTouchIcon from '../../assets/favicons/apple-touch-icon.png';
 import safariPinnedTab from '../../assets/favicons/safari-pinned-tab.svg';
-import mstile from '../../assets/favicons/mstile-150x150.png';
+// import mstile from '../../assets/favicons/mstile-150x150.png';
 
 const Globals = createGlobalStyle`
   ${styledNormalize}
@@ -43,11 +42,11 @@ const Globals = createGlobalStyle`
   }
 
   body {
-    background-color: ${theme.colors.nearWhite};
-    color: ${theme.copy.color};
-    font-family: ${theme.copy.fontFamily};
-    font-size: ${theme.copy.fontSize};
-    line-height: ${theme.copy.lineHeight};
+    background-color: ${props => props.theme.colors.white87};
+    color: ${props => props.theme.copy.color};
+    font-family: ${props => props.theme.copy.fontFamily};
+    font-size: ${props => props.theme.copy.fontSize};
+    line-height: ${props => props.theme.copy.lineHeight};
   }
 `;
 
@@ -73,7 +72,7 @@ const Content = styled.div`
     grid-column: 1 / span 2;
 
     ${breakpoint('md')`
-      grid-row: 1 / span 2;
+      grid-row: 1 / span 3;
       grid-column: 2 / span 1;
     `}
   }
@@ -109,7 +108,7 @@ const TemplateWrapper = ({ children }) => (
       <Layout>
         <Helmet>
           <html lang="en-AU"/>
-          <title>Laurie Jones &mdash; Frontend developer &amp; designer based in Newcastle, Australia"</title>
+          <title>Laurie Jones &mdash; Frontend developer &amp; designer based in Newcastle, Australia</title>
           <meta name="description" content="Laurie Jones is a frontend developer and designer focused on design systems"/>
           <meta name="keywords" content="laurie jones, frontend developer, react developer, ui designer, ux designer, design systems, designops, Newcastle, Australia"/>
           <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon}/>
@@ -124,7 +123,6 @@ const TemplateWrapper = ({ children }) => (
         <Content>
           {children}
         </Content>
-        <Footer/>
       </Layout>
     </div>
   </ThemeProvider>

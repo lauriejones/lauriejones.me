@@ -8,15 +8,7 @@ import Layout from '../components/Layout';
 import Link from '../components/Link';
 import Panel from '../components/Panel';
 import Copy from '../components/Copy';
-
 import headshot from '../assets/lauriejones.jpg';
-
-const Hr = styled.hr`
-  margin: 0;
-  border: none;
-  border-top: .125rem solid hsla(0, 0%, 0%, .1);
-  max-width: 2rem;
-`;
 
 const HideBelowMd = styled.div`
   display: none;
@@ -78,7 +70,6 @@ const IndexPage = () => (
         </Margin>
 
         <Grid wrap={false}>
-
           <Grid.Unit size={{lg: 'min' }}>
             <Margin bottom={3}>
               <Copy size="large" lineHeight="copy">Currently working in DesignOps at <Link href="https://twitter.com/nibhealthfunds">@nibhealthfunds</Link>. Focused on improving our <Link href="https://design.nib.com.au">design system</Link>, tooling and processes.</Copy>
@@ -88,12 +79,16 @@ const IndexPage = () => (
               <Copy>Passionate about empowering teams to quickly build consistent, high-quality and inclusive user interfaces.</Copy>
             </Margin>
 
+            <Tag>CSS</Tag>
+            <Tag>HTML</Tag>
+            <Tag>JS</Tag>
+            <Tag>Accessibility</Tag>
+            <Tag>Design Systems</Tag>
             <Tag>React</Tag>
             <Tag>Styled Components</Tag>
-            <Tag>CSS</Tag>
-            <Tag>JS</Tag>
-            <Tag>HTML</Tag>
-            <Tag>a11y</Tag>
+            <Tag>Gatsby</Tag>
+            <Tag>UX</Tag>
+            <Tag>UI</Tag>
           </Grid.Unit>
 
           <HideBelowMd>
@@ -108,30 +103,6 @@ const IndexPage = () => (
           </HideBelowMd>
           
         </Grid>
-
-        {/* <Margin vertical={4}>
-          <Hr/>
-        </Margin>
-        
-        <Copy measure={false}>
-          Say hello: 
-          <Link href="https://twitter.com/laurie_jones">Twitter</Link>
-          <span> &middot; </span>
-          <Link href="mailto:hello@lauriejones.me">hello@lauriejones.me</Link>
-        </Copy>
-
-        {/* <Copy measure={false}>
-          <Link href="https://twitter.com/laurie_jones">Twitter</Link>
-          <span> &middot; </span> 
-          <Link href="https://github.com/lauriejones">GitHub</Link>
-          <span> &middot; </span> 
-          <Link href="https://npm.im/lauriejones">npm</Link>
-          <span> &middot; </span> 
-          <Link href="https://au.linkedin.com/in/lauriejonesme">Linked In</Link>
-          <span> &middot; </span> 
-          <Link href="mailto:hello@lauriejones.me">hello@lauriejones.me</Link>
-        </Copy>
-        */}
       </Panel>
     </main>
   </Layout>
