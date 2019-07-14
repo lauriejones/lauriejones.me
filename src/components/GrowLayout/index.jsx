@@ -17,33 +17,35 @@ InnerWrapper.displayName = 'InnerWrapper';
 
 const Content = styled.div`
   flex: 1 1 auto;
-  ${({flex}) => flex && `
+  ${({ flex }) =>
+    flex &&
+    `
     display: flex;
   `}
 `;
 Content.displayName = 'Content';
 
 Content.propTypes = {
-  flex: PropTypes.bool
+  flex: PropTypes.bool,
 };
 
 Content.defaultProps = {
-  flex: false
+  flex: false,
 };
 
-const Wrapper = ({children, ...otherProps}) => (
+const Wrapper = ({ children, ...otherProps }) => (
   <OuterWrapper {...otherProps}>
     <InnerWrapper>{children}</InnerWrapper>
   </OuterWrapper>
 );
 
 Wrapper.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 const GrowLayout = {
   Wrapper,
-  Content
+  Content,
 };
 
 GrowLayout.displayName = 'GrowLayout';

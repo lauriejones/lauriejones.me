@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const h1 = () => css`
   font-size: ${props => props.theme.typeScale[1]};
   font-weight: 400;
-  line-height: ${props => props.theme.lineHeight.title}
+  line-height: ${props => props.theme.lineHeight.title};
 `;
 
 const h2 = () => css`
@@ -34,14 +34,14 @@ const h6 = () => css`
 `;
 
 export const BaseHeadingComponent = props => {
-  const {size, component, ...otherProps} = props;
+  const { size, component, ...otherProps } = props;
   let Component = component;
 
   if (!Component) {
     Component = `h${size}`;
   }
 
-  return (<Component {...otherProps}/>);
+  return <Component {...otherProps} />;
 };
 
 const Heading = styled(BaseHeadingComponent)`
@@ -49,18 +49,18 @@ const Heading = styled(BaseHeadingComponent)`
   font-family: ${props => props.theme.copy.fontFamily};
   margin: 0;
   line-height: 1.25;
-  ${({size}) => size === 1 && h1()}
-  ${({size}) => size === 2 && h2()}
-  ${({size}) => size === 3 && h3()}
-  ${({size}) => size === 4 && h4()}
-  ${({size}) => size === 5 && h5()}
-  ${({size}) => size === 6 && h6()}
+  ${({ size }) => size === 1 && h1()}
+  ${({ size }) => size === 2 && h2()}
+  ${({ size }) => size === 3 && h3()}
+  ${({ size }) => size === 4 && h4()}
+  ${({ size }) => size === 5 && h5()}
+  ${({ size }) => size === 6 && h6()}
 `;
 
 Heading.propTypes = {
   size: PropTypes.number.isRequired,
   color: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 Heading.displayName = 'Heading';

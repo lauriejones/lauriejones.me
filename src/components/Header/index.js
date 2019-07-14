@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
-import {Padding} from 'styled-components-spacing';
+import { Padding } from 'styled-components-spacing';
 import Link from '../Link';
 import Logo from '../Logo';
 import Copy from '../Copy';
-import {rainbowBg} from '../../utils';
+import { rainbowBg } from '../../utils';
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -39,30 +39,39 @@ const HeaderWrapper = styled.header`
 `;
 
 const Vertical = styled.div`
-
   @supports (display: grid) {
-
     ${breakpoint('md')`
       transform: rotate(-90deg);
       white-space: nowrap;
     `}
-  
   }
 `;
 
 const Header = () => (
   <HeaderWrapper>
-    <Logo fill="#333"/>
+    <Logo fill="#333" />
     <Vertical>
       <Padding all={3}>
-        <Copy size="small" lineHeight="solid" color={props => props.theme.colors.black87}>
-          <Link muted href="https://twitter.com/laurie_jones">Twitter</Link>
-          <span> &middot; </span> 
-          <Link muted href="https://github.com/lauriejones">GitHub</Link>
-          <span> &middot; </span> 
-          <Link muted href="https://www.npmjs.com/~lauriejones">npm</Link>
-          <span> &middot; </span> 
-          <Link muted href="https://au.linkedin.com/in/lauriejonesme">Linked In</Link>
+        <Copy
+          size="small"
+          lineHeight="solid"
+          color={props => props.theme.colors.black87}
+        >
+          <Link muted href="https://twitter.com/laurie_jones">
+            Twitter
+          </Link>
+          <span> &middot; </span>
+          <Link muted href="https://github.com/lauriejones">
+            GitHub
+          </Link>
+          <span> &middot; </span>
+          <Link muted href="https://www.npmjs.com/~lauriejones">
+            npm
+          </Link>
+          <span> &middot; </span>
+          <Link muted href="https://au.linkedin.com/in/lauriejonesme">
+            Linked In
+          </Link>
         </Copy>
       </Padding>
     </Vertical>
