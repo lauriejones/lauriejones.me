@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const BaseCopy = props => {
   const {
+    // eslint-disable-next-line no-unused-vars
     component: Component,
     measure, size, align, color, lineHeight, //eslint-disable-line no-unused-vars
     ...otherProps} = props;
@@ -28,6 +29,7 @@ const Copy = styled(BaseCopy)`
     if (measure) {
       return 'max-width: 24em;';
     }
+    return '';
   }}
 
   ${({align, measure}) => {
@@ -53,6 +55,7 @@ const Copy = styled(BaseCopy)`
     } else if (align) {
       return `text-align: ${align};`;
     }
+    return '';
   }}
   
   ${({size, theme}) => {
@@ -71,6 +74,7 @@ const Copy = styled(BaseCopy)`
         font-size: ${theme.typeScale[5]};
       `;
     }
+    return '';
   }}
   
   ${({lineHeight, theme}) => {
@@ -89,6 +93,7 @@ const Copy = styled(BaseCopy)`
         line-height: ${theme.lineHeights.title};
       `;
     }
+    return '';
   }}
 `;
 

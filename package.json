@@ -4,11 +4,13 @@
   "version": "1.0.0",
   "author": "Laurie Jones <hello@lauriejones.me>",
   "dependencies": {
+    "eslint-config-jameslnewell": "^3.2.0",
     "gatsby": "^2.13.13",
     "gatsby-link": "^2.2.0",
     "gatsby-plugin-google-analytics": "^2.1.1",
     "gatsby-plugin-react-helmet": "^3.1.0",
     "gatsby-plugin-styled-components": "^3.1.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
@@ -27,9 +29,14 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
+    "lint": "eslint 'src/**/*.@(jsx|js)'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "eslint": "^6.0.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-react-app": "^4.0.1",
+    "eslint-plugin-react": "^7.14.2",
     "prettier": "^1.18.2"
   }
 }

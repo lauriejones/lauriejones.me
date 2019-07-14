@@ -8,15 +8,7 @@ import Layout from '../components/Layout';
 import Link from '../components/Link';
 import Panel from '../components/Panel';
 import Copy from '../components/Copy';
-
 import headshot from '../assets/lauriejones.jpg';
-
-// const Hr = styled.hr`
-//   margin: 0;
-//   border: none;
-//   border-top: .125rem solid hsla(0, 0%, 0%, .1);
-//   max-width: 2rem;
-// `;
 
 const HideBelowMd = styled.div`
   display: none;
@@ -36,15 +28,6 @@ const CenteredBelowMd = styled.div`
   ${breakpoint('md')`
     text-align: left;
   `}
-`;
-
-const transparentBlue = 'hsla(217, 100%, 50%, .25)';
-const transparentPurple = 'hsla(257, 70%, 50%, .25)';
-
-const GradientImageWrapper = styled.div`
-  font-size: 0;
-  /* background: linear-gradient(135deg, ${transparentBlue}, ${transparentPurple}); */
-  border-radius: 50%;
 `;
 
 const CircleImage = styled.img`
