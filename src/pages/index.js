@@ -11,12 +11,12 @@ import Copy from '../components/Copy';
 
 import headshot from '../assets/lauriejones.jpg';
 
-const Hr = styled.hr`
-  margin: 0;
-  border: none;
-  border-top: .125rem solid hsla(0, 0%, 0%, .1);
-  max-width: 2rem;
-`;
+// const Hr = styled.hr`
+//   margin: 0;
+//   border: none;
+//   border-top: .125rem solid hsla(0, 0%, 0%, .1);
+//   max-width: 2rem;
+// `;
 
 const HideBelowMd = styled.div`
   display: none;
@@ -108,30 +108,6 @@ const IndexPage = () => (
           </HideBelowMd>
           
         </Grid>
-
-        {/* <Margin vertical={4}>
-          <Hr/>
-        </Margin>
-        
-        <Copy measure={false}>
-          Say hello: 
-          <Link href="https://twitter.com/laurie_jones">Twitter</Link>
-          <span> &middot; </span>
-          <Link href="mailto:hello@lauriejones.me">hello@lauriejones.me</Link>
-        </Copy>
-
-        {/* <Copy measure={false}>
-          <Link href="https://twitter.com/laurie_jones">Twitter</Link>
-          <span> &middot; </span> 
-          <Link href="https://github.com/lauriejones">GitHub</Link>
-          <span> &middot; </span> 
-          <Link href="https://npm.im/lauriejones">npm</Link>
-          <span> &middot; </span> 
-          <Link href="https://au.linkedin.com/in/lauriejonesme">Linked In</Link>
-          <span> &middot; </span> 
-          <Link href="mailto:hello@lauriejones.me">hello@lauriejones.me</Link>
-        </Copy>
-        */}
       </Panel>
     </main>
   </Layout>

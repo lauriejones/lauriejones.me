@@ -73,7 +73,7 @@ const Content = styled.div`
     grid-column: 1 / span 2;
 
     ${breakpoint('md')`
-      grid-row: 1 / span 2;
+      grid-row: 1 / span 3;
       grid-column: 2 / span 1;
     `}
   }
