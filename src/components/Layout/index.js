@@ -43,7 +43,7 @@ const Globals = createGlobalStyle`
   }
 
   body {
-    background-color: ${theme.colors.nearWhite};
+    background-color: ${theme.colors.white87};
     color: ${theme.copy.color};
     font-family: ${theme.copy.fontFamily};
     font-size: ${theme.copy.fontSize};

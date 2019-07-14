@@ -38,6 +38,15 @@ const CenteredBelowMd = styled.div`
   `}
 `;
 
+const transparentBlue = 'hsla(217, 100%, 50%, .25)';
+const transparentPurple = 'hsla(257, 70%, 50%, .25)';
+
+const GradientImageWrapper = styled.div`
+  font-size: 0;
+  /* background: linear-gradient(135deg, ${transparentBlue}, ${transparentPurple}); */
+  border-radius: 50%;
+`;
+
 const CircleImage = styled.img`
   display: inline-block;
   width: 11.25rem;
@@ -78,7 +87,6 @@ const IndexPage = () => (
         </Margin>
 
         <Grid wrap={false}>
-
           <Grid.Unit size={{lg: 'min' }}>
             <Margin bottom={3}>
               <Copy size="large" lineHeight="copy">Currently working in DesignOps at <Link href="https://twitter.com/nibhealthfunds">@nibhealthfunds</Link>. Focused on improving our <Link href="https://design.nib.com.au">design system</Link>, tooling and processes.</Copy>
@@ -88,12 +96,16 @@ const IndexPage = () => (
               <Copy>Passionate about empowering teams to quickly build consistent, high-quality and inclusive user interfaces.</Copy>
             </Margin>
 
+            <Tag>CSS</Tag>
+            <Tag>HTML</Tag>
+            <Tag>JS</Tag>
+            <Tag>Accessibility</Tag>
+            <Tag>Design Systems</Tag>
             <Tag>React</Tag>
             <Tag>Styled Components</Tag>
-            <Tag>CSS</Tag>
-            <Tag>JS</Tag>
-            <Tag>HTML</Tag>
-            <Tag>a11y</Tag>
+            <Tag>Gatsby</Tag>
+            <Tag>UX</Tag>
+            <Tag>UI</Tag>
           </Grid.Unit>
 
           <HideBelowMd>
