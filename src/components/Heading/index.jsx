@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 const h1 = () => css`
   font-size: ${props => props.theme.typeScale[1]};
   font-weight: 400;
-  line-height: ${props => props.theme.lineHeight.title};
+  /* line-height: ${props => props.theme.lineHeight.title}; */
 `;
 
 const h2 = () => css`
