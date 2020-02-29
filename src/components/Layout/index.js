@@ -6,8 +6,9 @@ import breakpoint from 'styled-components-breakpoint';
 import styledNormalize from 'styled-normalize';
 
 import Header from '../Header';
-import theme from '../Theme';
+import Footer from '../Footer';
 import Link from '../Link';
+import theme from '../Theme';
 
 import favIcon from '../../assets/favicons/favicon.ico';
 import favIcon16 from '../../assets/favicons/favicon-16x16.png';
@@ -52,7 +53,7 @@ const Globals = createGlobalStyle`
 
 const Layout = styled.div`
   @supports (display: grid) {
-    display: grid;
+    /* display: grid; */
     grid-template-columns: 1fr;
     grid-template-rows: 3rem 1fr 3rem;
   }
@@ -140,6 +141,7 @@ const TemplateWrapper = ({ children }) => (
         </Helmet>
         <Header />
         <Content>{children}</Content>
+        <Footer />
       </Layout>
     </div>
   </ThemeProvider>
