@@ -53,7 +53,7 @@ const Globals = createGlobalStyle`
 const Layout = styled.div`
   @supports (display: grid) {
     display: grid;
-    grid-template-columns: 3rem 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 3rem 1fr 3rem;
   }
   display: flex;
