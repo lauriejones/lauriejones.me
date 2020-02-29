@@ -41,12 +41,20 @@ const Globals = createGlobalStyle`
     outline: 3px solid #ffeb3b;
   }
 
+
   body {
     background-color: ${props => props.theme.colors.white87};
     color: ${props => props.theme.copy.color};
     font-family: ${props => props.theme.copy.fontFamily};
     font-size: ${props => props.theme.copy.fontSize};
     line-height: ${props => props.theme.copy.lineHeight};
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: ${props => props.theme.colors.blue};
+      color: ${props => props.theme.colors.white87};
+    }
   }
 `;
 

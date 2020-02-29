@@ -49,7 +49,7 @@ const Vertical = styled.div`
 
 const Header = () => (
   <HeaderWrapper>
-    <Logo fill="#333" />
+    <Logo fill="#333" to="/" />
     <Vertical>
       <Padding all={3}>
         <Copy

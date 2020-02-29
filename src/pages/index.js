@@ -87,8 +87,8 @@ const IndexPage = () => (
 
             <Margin bottom={4}>
               <Copy>
-                Passionate about empowering teams to quickly build consistent,
-                high-quality and inclusive user interfaces.
+                Passionate about enabling teams to quickly build high-quality,
+                inclusive and consistent user interfaces.
               </Copy>
             </Margin>
 
