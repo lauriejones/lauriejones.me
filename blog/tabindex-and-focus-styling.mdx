@@ -1,0 +1,24 @@
+---
+title: Tabindex and focus styling
+date: "2020-03-28T02:00:16.775Z"
+tags: a11y, keyboard, focus
+---
+In my recent mission to improve my keyboard accessibility practices I came across an interesting behaviour.
+
+I was implementing a skip link when I realised that clicking on an element that has a `tabIndex` attribute it focuses, with whatever outline styling you have or have not established.
+
+https://codepen.io/laurie/pen/RBQzKb
+
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="html,result" data-user="laurie" data-slug-hash="RBQzKb" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Tab index of -1 focuses on click">
+  <span>See the Pen <a href="https://codepen.io/laurie/pen/RBQzKb">
+  Tab index of -1 focuses on click</a> by Laurie Jones (<a href="https://codepen.io/laurie">@laurie</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
+
+Clicking on the element directly focuses it
+Clicking a jump link to the element also focuses it
+
+When trying to manage focus for your user you may need to "throw focus" to a  

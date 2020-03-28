@@ -2,15 +2,16 @@ import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import styled from 'styled-components';
 import { p, Padding } from 'styled-components-spacing';
-import Link from '../Link';
-import Logo from '../Logo';
-import Copy from '../Copy';
-import { rainbowBg } from '../../utils';
+import { rainbowBg } from '../utils';
+import Link from './Link';
+import Logo from './Logo';
+import Copy from './Copy';
 
 const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid rgba(0, 0, 0, .1);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1), 0 2px 8px 0 rgba(0, 0, 0, .05);
 
   line-height: 1;
   font-size: 0;
@@ -22,7 +23,7 @@ const HeaderWrapper = styled.header`
 
 const Nav = styled.nav`
   display: inline-grid;
-  grid-gap: .5rem;
+  grid-gap: 0.5rem;
   grid-auto-flow: column;
 `;
 
@@ -53,7 +54,7 @@ const NavLink = styled(Link)`
 
 const Header = () => (
   <HeaderWrapper>
-    <Logo fill="#333" />
+    <Logo fill="#333" to="/" />
     <Padding all={2}>
       <Copy
         size="small"

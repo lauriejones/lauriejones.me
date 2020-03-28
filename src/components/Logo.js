@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Link from 'gatsby-link';
 
 const Svg = styled.svg`
   width: 1rem;
@@ -13,11 +14,23 @@ const Svg = styled.svg`
 `;
 
 const Logo = props => {
-  const { fill } = props;
+
+  if (props.to) {
+    return (
+    <Link to={props.to}>
+      <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 40">
+        <path
+          fill={props.fill}
+          d="M26,40c-5,0,-10-5-10-10H0V0h36v30C36,36,32,40,26,40z"
+        />
+      </Svg>
+    </Link>);
+  }
+
   return (
     <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 40">
       <path
-        fill={fill}
+        fill={props.fill}
         d="M26,40c-5,0,-10-5-10-10H0V0h36v30C36,36,32,40,26,40z"
       />
     </Svg>
@@ -26,10 +39,11 @@ const Logo = props => {
 
 Logo.propTypes = {
   fill: PropTypes.string,
+  to: PropTypes.string
 };
 
 Logo.defaultProps = {
-  size: 'medium',
+  fill: '#333'
 };
 
 export default Logo;

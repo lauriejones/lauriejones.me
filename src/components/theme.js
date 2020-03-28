@@ -8,7 +8,7 @@ const breakpoints = {
   xxxl: 1600,
 };
 
-const container = `${breakpoints.xl}px`;
+const container = `${breakpoints.lg / 16}rem`;
 
 export const colors = {
   green: '#39c689',

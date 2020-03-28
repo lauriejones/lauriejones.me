@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import Grid from 'styled-components-grid';
 import { Margin, Padding, px, py, mr, mb } from 'styled-components-spacing';
+import { Helmet } from 'react-helmet';
 import Heading from '../components/Heading';
 import Layout from '../components/Layout';
 import Link from '../components/Link';
@@ -51,91 +52,94 @@ const Tag = styled.span`
 
 const AboutPage = () => (
   <Layout>
-    <main id="maincontent">
-      <Panel>
-        <HideAboveMd>
+    <Helmet>
+      <title>About</title>
+    </Helmet>
+    <Panel>
+      <HideAboveMd>
+        <Margin bottom={3}>
+          <CenteredBelowMd>
+            <CircleImage
+              src={headshot}
+              alt="A headshot of Laurie Jones with tropical plants in the background"
+            />
+          </CenteredBelowMd>
+        </Margin>
+      </HideAboveMd>
+
+      <Margin bottom={4}>
+        <Heading size={2}>
+          <strong>About</strong> &mdash;
+        </Heading>
+      </Margin>
+
+      <Grid wrap={false}>
+        <Grid.Unit size={{ lg: 'min' }}>
           <Margin bottom={3}>
-            <CenteredBelowMd>
+            <Copy size="large" lineHeight="copy">
+              I am a front-end developer and UI designer with eight years
+              professional experience.
+            </Copy>
+          </Margin>
+
+          <Margin bottom={3}>
+            <Copy size="large" lineHeight="copy">
+              I have been working at nib Health Funds for five years and for the
+              last two I have been focusedCurrently working in DesignOps at{' '}
+              <Link href="https://twitter.com/nibhealthfunds">
+                @nibhealthfunds
+              </Link>
+              . Focused on improving our{' '}
+              <Link href="https://design.nib.com.au">design system</Link>,
+              tooling and processes.
+            </Copy>
+          </Margin>
+
+          <Margin bottom={4}>
+            <Copy>June 2018 &mdash; current</Copy>
+            <Heading size={4}>
+              Senior Frontend Developer in the DesignOps team at nib
+            </Heading>
+          </Margin>
+
+          <Margin bottom={4}>
+            <Copy>Mar 2015 &mdash; Dec 2018</Copy>
+            <Heading size={4}>
+              Frontend Developer in the Online Acquisitions team at nib
+            </Heading>
+          </Margin>
+
+          <Margin bottom={4}>
+            <Copy>Mar 2012 &mdash; Sep 2014</Copy>
+            <Heading size={4}>
+              Web Designer &amp; Developer at Redback Solutions
+            </Heading>
+          </Margin>
+
+          <Tag>CSS</Tag>
+          <Tag>HTML</Tag>
+          <Tag>JS</Tag>
+          <Tag>Accessibility</Tag>
+          <Tag>Design Systems</Tag>
+          <Tag>React</Tag>
+          <Tag>Styled Components</Tag>
+          <Tag>Gatsby</Tag>
+          <Tag>UX</Tag>
+          <Tag>UI</Tag>
+        </Grid.Unit>
+
+        <HideBelowMd>
+          <Grid.Unit size={{ lg: 'min' }}>
+            <Padding left={4}>
               <CircleImage
                 src={headshot}
                 alt="A headshot of Laurie Jones with tropical plants in the background"
               />
-            </CenteredBelowMd>
-          </Margin>
-        </HideAboveMd>
-
-        <Margin bottom={4}>
-          <Heading size={2}>
-            <strong>About</strong> &mdash;
-          </Heading>
-        </Margin>
-
-        <Grid wrap={false}>
-          <Grid.Unit size={{ lg: 'min' }}>
-            <Margin bottom={3}>
-              <Copy size="large" lineHeight="copy">
-                I am a front-end developer and UI designer with eight years professional experience.
-              </Copy>
-            </Margin>
-
-            <Margin bottom={3}>
-              <Copy size="large" lineHeight="copy">
-                I have been working at nib Health Funds for five years and for the last two I have been focusedCurrently working in DesignOps at{' '}
-                <Link href="https://twitter.com/nibhealthfunds">
-                  @nibhealthfunds
-                </Link>
-                . Focused on improving our{' '}
-                <Link href="https://design.nib.com.au">design system</Link>,
-                tooling and processes.
-              </Copy>
-            </Margin>
-
-            <Margin bottom={4}>
-              <Copy>
-                June 2018 &mdash; current
-              </Copy>
-              <Heading size={4}>Senior Frontend Developer in the DesignOps team at nib</Heading>
-            </Margin>
-
-            <Margin bottom={4}>
-              <Copy>
-                Mar 2015 &mdash; Dec 2018 
-              </Copy>
-              <Heading size={4}>Frontend Developer in the Online Acquisitions team at nib</Heading>
-            </Margin>
-
-            <Margin bottom={4}>
-              <Copy>
-                Mar 2012 &mdash; Sep 2014 
-              </Copy>
-              <Heading size={4}>Web Designer &amp; Developer at Redback Solutions</Heading>
-            </Margin>
-
-            <Tag>CSS</Tag>
-            <Tag>HTML</Tag>
-            <Tag>JS</Tag>
-            <Tag>Accessibility</Tag>
-            <Tag>Design Systems</Tag>
-            <Tag>React</Tag>
-            <Tag>Styled Components</Tag>
-            <Tag>Gatsby</Tag>
-            <Tag>UX</Tag>
-            <Tag>UI</Tag>
+            </Padding>
           </Grid.Unit>
-
-          <HideBelowMd>
-            <Grid.Unit size={{ lg: 'min' }}>
-              <Padding left={4}>
-                <CircleImage
-                  src={headshot}
-                  alt="A headshot of Laurie Jones with tropical plants in the background"
-                />
-              </Padding>
-            </Grid.Unit>
-          </HideBelowMd>
-        </Grid>
-      </Panel>
-    </main>
+        </HideBelowMd>
+      </Grid>
+    </Panel>
   </Layout>
 );
 

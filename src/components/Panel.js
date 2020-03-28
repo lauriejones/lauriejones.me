@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Padding } from 'styled-components-spacing';
-import Container from '../Container';
+import Container from './Container';
 
 const Wrapper = styled.div`
+  width: 100%;
   background-color: ${props => props.bg};
   color: ${props => props.color};
 `;

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Padding } from 'styled-components-spacing';
-import Link from '../Link';
-import Copy from '../Copy';
+import Link from './Link';
+import Copy from './Copy';
 
 const FooterWrapper = styled.header`
   display: flex;

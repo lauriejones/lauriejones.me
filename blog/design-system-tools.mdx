@@ -1,0 +1,28 @@
+---
+title: Design System tools
+date: "2020-03-03T07:02:43.490Z"
+---
+I spend my days maintaining and (hopefully) improving the nib design system, Mesh. We have had a design system, in one form or another, since before I started here 5 years ago.
+
+Pattern Library - many individual github repos. Sometimes two repos for a single component; one for the javascript logic and one for the styles written in scss.
+
+Moved to single packages for each component, using the css-in-js library Styled Components.
+
+Moved to a monorepo to enable changes across the system more easily. Changes to many interconnected packages can now be made in a single PR.
+
+The documentation website, unfortunately is not part of this and often lags behind the current state of the components. Not great!
+
+We have begun the migration to have these docs part of same monorepo.
+
+
+
+I often think, if we were to start anew tomorrow building a design system, what would that look like? What tools would we use?
+
+- design tokens &#8482;
+- storybook - doc blocks
+- monorepo / single package - compatibility for your users.
+- changesets?
+- vanilla css / atomic or css-in-js. React? or html?
+- styled system! System props!
+- theme support is a must have. Dark mode/multi-brand
+

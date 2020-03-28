@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import styledNormalize from 'styled-normalize';
 
-import Header from '../Header';
-import Footer from '../Footer';
-import Link from '../Link';
-import theme from '../Theme';
+import favIcon from '../assets/favicons/favicon.ico';
+import favIcon16 from '../assets/favicons/favicon-16x16.png';
+import favIcon32 from '../assets/favicons/favicon-32x32.png';
+// import androidChrome192 from '../assets/favicons/android-chrome-192x192.png';
+// import androidChrome512 from '../assets/favicons/android-chrome-512x512.png';
+import appleTouchIcon from '../assets/favicons/apple-touch-icon.png';
+import safariPinnedTab from '../assets/favicons/safari-pinned-tab.svg';
+// import mstile from '../assets/favicons/mstile-150x150.png';
 
-import favIcon from '../../assets/favicons/favicon.ico';
-import favIcon16 from '../../assets/favicons/favicon-16x16.png';
-import favIcon32 from '../../assets/favicons/favicon-32x32.png';
-// import androidChrome192 from '../../assets/favicons/android-chrome-192x192.png';
-// import androidChrome512 from '../../assets/favicons/android-chrome-512x512.png';
-import appleTouchIcon from '../../assets/favicons/apple-touch-icon.png';
-import safariPinnedTab from '../../assets/favicons/safari-pinned-tab.svg';
-// import mstile from '../../assets/favicons/mstile-150x150.png';
+import Header from './Header';
+import Footer from './Footer';
+import Link from './Link';
+import theme from './theme';
 
 const Globals = createGlobalStyle`
   ${styledNormalize}
@@ -34,7 +34,7 @@ const Globals = createGlobalStyle`
 
   @media screen and (min-width: 60em) {
     :root {
-      font-size: 21px;
+      font-size: 24px;
     }
   }
 
@@ -62,9 +62,9 @@ const Layout = styled.div`
   min-height: 100vh;
 `;
 
-const Content = styled.div`
+const Content = styled.main`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-grow: 1;
 
@@ -107,15 +107,14 @@ const TemplateWrapper = ({ children }) => (
       <Globals />
       <SkipLink href="#maincontent">Skip to main content</SkipLink>
       <Layout>
-        <Helmet>
+        <Helmet titleTemplate="%s &middot; Laurie Jones">
           <html lang="en-AU" />
           <title>
-            Laurie Jones &mdash; Frontend developer &amp; designer based in
-            Newcastle, Australia
+            Frontend developer &amp; designer based in Newcastle, Australia
           </title>
           <meta
             name="description"
-            content="Laurie Jones is a frontend developer and designer focused on design systems"
+            content="Laurie Jones is a frontend developer and designer based in Newcastle, Australia focused on design systems"
           />
           <meta
             name="keywords"
@@ -140,7 +139,7 @@ const TemplateWrapper = ({ children }) => (
           />
         </Helmet>
         <Header />
-        <Content>{children}</Content>
+        <Content id="maincontent">{children}</Content>
         <Footer />
       </Layout>
     </div>
