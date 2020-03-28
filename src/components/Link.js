@@ -1,29 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link as GatsbyLink } from 'gatsby';
 
 import { colors } from './theme';
 
-const BaseLink = props => {
-  const {
-    component: Component,
-    size,
-    color,
-    muted, //eslint-disable-line no-unused-vars
-    ...otherProps
-  } = props;
-  return <Component {...otherProps} />;
-};
-
-BaseLink.propTypes = {
-  component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-};
-
-BaseLink.defaultProps = {
-  component: 'a',
-};
-
-const Link = styled(BaseLink)`
+const Link = styled.a`
   margin: 0;
   color: ${props => (props.muted ? 'currentColor' : props.theme.link.color)};
   font-family: ${({ theme }) =>
@@ -41,6 +23,13 @@ const Link = styled(BaseLink)`
   }
 `;
 
+const SmartLink = props => {
+  if (props.to) {
+    return <Link as={GatsbyLink} {...props} />;
+  }
+  return <Link {...props} />;
+};
+
 Link.propTypes = {
   color: PropTypes.string,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
@@ -51,4 +40,4 @@ Link.defaultProps = {
   size: 'medium',
 };
 
-export default Link;
+export default SmartLink;

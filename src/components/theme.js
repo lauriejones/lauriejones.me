@@ -8,7 +8,7 @@ const breakpoints = {
   xxxl: 1600,
 };
 
-const container = `${breakpoints.lg / 16}rem`;
+const container = '48rem';
 
 export const colors = {
   green: '#39c689',
@@ -33,7 +33,7 @@ export const colors = {
   white06: 'hsla(0, 0%, 100%, .06)',
 };
 
-const spacing = {
+export const spacing = {
   0: '0',
   1: '.25rem',
   2: '.5rem',

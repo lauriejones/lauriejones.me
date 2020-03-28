@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link as GatsbyLink, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
 import Layout from '../components/Layout';
@@ -8,6 +8,7 @@ import Copy from '../components/Copy';
 import Heading from '../components/Heading';
 import Link from '../components/Link';
 import Panel from '../components/Panel';
+import Stack from '../components/Stack';
 
 const PageHeader = styled.div`
   display: flex;
@@ -52,13 +53,18 @@ const BlogIndex = ({ data }) => {
           <List>
             {posts.map(({ node: post }) => (
               <ListItem key={post.id}>
-                <Heading size={2}>
-                  <Link to={post.fields.slug} component={GatsbyLink}>
-                    {post.frontmatter.title}
-                  </Link>
-                </Heading>
-                <Copy>{post.excerpt}</Copy>
-                <small>{post.frontmatter.date}</small>
+                <Stack>
+                  <Heading size={2}>
+                    <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
+                  </Heading>
+                  <Copy>{post.excerpt}</Copy>
+                  <Copy
+                    size="small"
+                    color={props => props.theme.colors.black54}
+                  >
+                    {post.frontmatter.date}
+                  </Copy>
+                </Stack>
               </ListItem>
             ))}
           </List>
@@ -70,7 +76,7 @@ const BlogIndex = ({ data }) => {
 
 export const pageQuery = graphql`
   query blogIndex {
-    allMdx {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       edges {
         node {
           id

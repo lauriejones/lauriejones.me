@@ -44,6 +44,7 @@ const Globals = createGlobalStyle`
 
   body {
     background-color: ${props => props.theme.colors.white87};
+    /* background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red); */
     color: ${props => props.theme.copy.color};
     font-family: ${props => props.theme.copy.fontFamily};
     font-size: ${props => props.theme.copy.fontSize};

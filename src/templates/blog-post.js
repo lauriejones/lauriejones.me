@@ -1,8 +1,10 @@
 import React from 'react';
-import { graphql, Link as GatsbyLink } from 'gatsby';
+import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import Layout from '../components/Layout';
+import Stack from '../components/Stack';
+import Copy from '../components/Copy';
 import Heading from '../components/Heading';
 import Link from '../components/Link';
 import Panel from '../components/Panel';
@@ -26,12 +28,16 @@ export default function PageTemplate(props) {
   return (
     <Layout>
       <Panel>
-        <Heading size={1}>{mdx.frontmatter.title}</Heading>
-        <small>{mdx.frontmatter.date}</small>
-        <MDXRenderer>{mdx.body}</MDXRenderer>
-        <Link to="/blog/" component={GatsbyLink}>
-          Back to blog index
-        </Link>
+        <Stack>
+          <Heading size={1}>{mdx.frontmatter.title}</Heading>
+          <Copy size="small" color={props => props.theme.colors.black54}>
+            {mdx.frontmatter.date}
+          </Copy>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
+          <div>
+            <Link to="/blog/">&#x2190; Back to blog index</Link>
+          </div>
+        </Stack>
       </Panel>
     </Layout>
   );

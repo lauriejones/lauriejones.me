@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link as GatsbyLink } from 'gatsby';
 import styled from 'styled-components';
 import { p, Padding } from 'styled-components-spacing';
 import { rainbowBg } from '../utils';
@@ -62,13 +61,13 @@ const Header = () => (
         color={props => props.theme.colors.black87}
         component={Nav}
       >
-        <NavLink to="/" component={GatsbyLink} muted>
+        <NavLink to="/" muted>
           Home
         </NavLink>
-        <NavLink to="/about/" component={GatsbyLink} muted>
+        <NavLink to="/about/" muted>
           About
         </NavLink>
-        <NavLink to="/blog/" component={GatsbyLink} muted>
+        <NavLink to="/blog/" muted>
           Blog
         </NavLink>
       </Copy>
