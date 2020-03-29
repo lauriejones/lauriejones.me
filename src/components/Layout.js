@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import styled, { ThemeProvider, css,createGlobalStyle } from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import styledNormalize from 'styled-normalize';
 
@@ -14,6 +14,7 @@ import appleTouchIcon from '../assets/favicons/apple-touch-icon.png';
 import safariPinnedTab from '../assets/favicons/safari-pinned-tab.svg';
 // import mstile from '../assets/favicons/mstile-150x150.png';
 
+import FluidRootFontSize from './Fluid';
 import Header from './Header';
 import Footer from './Footer';
 import Link from './Link';
@@ -22,24 +23,8 @@ import theme from './theme';
 const Globals = createGlobalStyle`
   ${styledNormalize}
 
-  :root {
-    font-size: 16px;
-  }
-
-  @media screen and (min-width: 30em) {
-    :root {
-      font-size: calc(16px + (21 - 16) * ( (100vw - 400px) / ( 1200 - 400) ));
-    }
-  }
-
-  @media screen and (min-width: 60em) {
-    :root {
-      font-size: 24px;
-    }
-  }
-
   *:focus {
-    outline: 3px solid #ffeb3b;
+    outline: ${props => css`3px solid ${props.theme.focus}`};
   }
 
   body {
@@ -106,6 +91,7 @@ const TemplateWrapper = ({ children }) => (
   <ThemeProvider theme={theme}>
     <div>
       <Globals />
+      <FluidRootFontSize/>
       <SkipLink href="#maincontent">Skip to main content</SkipLink>
       <Layout>
         <Helmet titleTemplate="%s &middot; Laurie Jones">

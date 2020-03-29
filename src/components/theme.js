@@ -80,6 +80,8 @@ const fonts = {
   `,
 };
 
+const focus = colors.yellow;
+
 export default {
   breakpoints,
   container,
@@ -99,6 +101,8 @@ export default {
 
   link: {
     color: colors.blue,
-    focus: colors.yellow,
+    focus,
   },
+
+  focus,
 };

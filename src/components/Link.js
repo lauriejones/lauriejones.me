@@ -6,7 +6,7 @@ import { Link as GatsbyLink } from 'gatsby';
 import { colors } from './theme';
 
 const Link = styled.a`
-  margin: 0;
+  display: inline-block;
   color: ${props => (props.muted ? 'currentColor' : props.theme.link.color)};
   font-family: ${({ theme }) =>
     (theme.copy && theme.copy.fontFamily) || 'sans-serif'};

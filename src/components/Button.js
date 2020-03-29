@@ -42,6 +42,8 @@ const SmartButton = props => {
 
 Button.propTypes = {
   color: PropTypes.string,
+  to: PropTypes.string,
+  href: PropTypes.string,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 

@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import Grid from 'styled-components-grid';
-import { Margin, Padding, px, py, mr, mb } from 'styled-components-spacing';
+import { Margin, Padding, pt } from 'styled-components-spacing';
+import { graphql } from 'gatsby';
 import Heading from '../components/Heading';
 import Layout from '../components/Layout';
 import Button from '../components/Button';
@@ -39,92 +40,126 @@ const CircleImage = styled.img`
   border-radius: 50%;
 `;
 
-const Tag = styled.span`
-  ${px(3)};
-  ${py(2)};
-  ${mb(1)};
-  ${mr(1)};
-  display: inline-block;
-  border-radius: 100px;
-  background-color: ${props => props.theme.colors.black06};
-  font-size: ${props => props.theme.typeScale[6]};
-  line-height: ${props => props.theme.lineHeights.solid};
+const Box = styled.div`
+  border-top: 2px solid ${props => props.theme.colors.lightishGrey};
+  ${pt(4)};
 `;
 
 const SHARED_SPACING_VALUE = 4;
 
-const IndexPage = () => (
-  <Layout>
-    <Panel>
-      <Stack space={SHARED_SPACING_VALUE}>
-        <HideAboveMd>
-          <Margin bottom={3}>
-            <CenteredBelowMd>
-              <CircleImage
-                src={headshot}
-                alt="A headshot of Laurie Jones with tropical plants in the background"
-              />
-            </CenteredBelowMd>
-          </Margin>
-        </HideAboveMd>
+const IndexPage = ({ data, theme }) => {
+  const { edges: posts } = data.allMdx;
+  const latestPost = posts[0].node;
 
-        <Heading size={2} as="h1">
-          <strong>Laurie Jones</strong> &mdash; front&ndash;end developer and
-          designer based in Newcastle, Australia.
-        </Heading>
-
-        <Grid wrap={false}>
-          <Grid.Unit size={{ lg: 'min' }}>
-            <Stack space={SHARED_SPACING_VALUE}>
-              <div bottom={4}>
-                <Copy size="large">
-                  Professionally happiest at the intersection of UX and UI.
-                  Currently working in the DesignOps space at{' '}
-                  <Link href="https://twitter.com/nibhealthfunds">
-                    @nibhealthfunds
-                  </Link>{' '}
-                  focused on improving our{' '}
-                  <Link href="https://design.nib.com.au">design system</Link>{' '}
-                  and processes.
-                </Copy>
-              </div>
-
-              <Button to="/about/">More about me &#x2192;</Button>
-
-              {/* <Margin bottom={4}>
-            <Copy>
-              Passionate about empowering teams to quickly build consistent,
-              high-quality and inclusive user interfaces.
-            </Copy>
-          </Margin> */}
-
-              {/* <Tag>CSS</Tag>
-            <Tag>HTML</Tag>
-            <Tag>JS</Tag>
-            <Tag>Accessibility</Tag>
-            <Tag>Design Systems</Tag>
-            <Tag>React</Tag>
-            <Tag>Styled Components</Tag>
-            <Tag>Gatsby</Tag>
-            <Tag>UX</Tag>
-            <Tag>UI</Tag> */}
-            </Stack>
-          </Grid.Unit>
-
-          <HideBelowMd>
-            <Grid.Unit size={{ lg: 'min' }}>
-              <Padding left={4}>
+  return (
+    <Layout>
+      <Panel>
+        <Stack space={SHARED_SPACING_VALUE}>
+          <HideAboveMd>
+            <Margin bottom={3}>
+              <CenteredBelowMd>
                 <CircleImage
                   src={headshot}
                   alt="A headshot of Laurie Jones with tropical plants in the background"
                 />
-              </Padding>
+              </CenteredBelowMd>
+            </Margin>
+          </HideAboveMd>
+
+          <Heading size={2} as="h1">
+            <strong>Laurie Jones</strong> &mdash; front&ndash;end developer and
+            designer based in Newcastle, Australia.
+          </Heading>
+
+          <Grid wrap={false}>
+            <Grid.Unit size={{ lg: 'min' }}>
+              <Stack space={SHARED_SPACING_VALUE}>
+                <Copy size="large">
+                  Professionally happiest at the intersection of UX and UI.
+                  Passionate about enabling teams to build consistent,
+                  high-quality and inclusive user interfaces.
+                </Copy>
+
+                <Copy>
+                  Professionally happiest at the intersection of UX and UI.
+                  Passionate about enabling teams to build consistent,
+                  high-quality and inclusive user interfaces.
+                </Copy>
+
+                <Button to="/about/">More about me &#x2192;</Button>
+              </Stack>
             </Grid.Unit>
-          </HideBelowMd>
-        </Grid>
-      </Stack>
-    </Panel>
-  </Layout>
-);
+
+            <HideBelowMd>
+              <Grid.Unit size={{ lg: 'min' }}>
+                <Padding left={4}>
+                  <CircleImage
+                    src={headshot}
+                    alt="A headshot of Laurie Jones with tropical plants in the background"
+                  />
+                </Padding>
+              </Grid.Unit>
+            </HideBelowMd>
+          </Grid>
+
+          <Box>
+            <Grid>
+              <Grid.Unit size={{ lg: 0.5 }}>
+                <Stack>
+                  <Heading
+                    size={6}
+                    component="h2"
+                    color={props => props.theme.colors.black54}
+                  >
+                    Latest blog post:
+                  </Heading>
+                  <Link to={latestPost.fields.slug} muted>
+                    {latestPost.frontmatter.title}
+                  </Link>
+                </Stack>
+              </Grid.Unit>
+              <Grid.Unit size={{ lg: 0.5 }}>
+                <Stack>
+                  <Heading
+                    size={6}
+                    component="h2"
+                    color={props => props.theme.colors.black54}
+                  >
+                    Working on:
+                  </Heading>
+                  <Link
+                    href="http://nib-kaos-public-au-static-assets.s3-website-ap-southeast-2.amazonaws.com/design-system/master/"
+                    muted
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Mesh Design System
+                  </Link>
+                </Stack>
+              </Grid.Unit>
+            </Grid>
+          </Box>
+        </Stack>
+      </Panel>
+    </Layout>
+  );
+};
+
+export const IndexPageQuery = graphql`
+  query latestPost {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }, limit: 1) {
+      edges {
+        node {
+          frontmatter {
+            title
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;

@@ -57,7 +57,7 @@ const BlogIndex = ({ data }) => {
                   <Heading size={2}>
                     <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
                   </Heading>
-                  <Copy>{post.excerpt}</Copy>
+                  {/* <Copy>{post.excerpt}</Copy> */}
                   <Copy
                     size="small"
                     color={props => props.theme.colors.black54}

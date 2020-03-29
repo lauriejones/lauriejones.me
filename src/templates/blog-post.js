@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { Helmet } from 'react-helmet';
 
 import Layout from '../components/Layout';
 import Stack from '../components/Stack';
@@ -27,6 +28,9 @@ export default function PageTemplate(props) {
   console.log('Props', props);
   return (
     <Layout>
+      <Helmet>
+        <title>{mdx.frontmatter.title}</title>
+      </Helmet>
       <Panel>
         <Stack>
           <Heading size={1}>{mdx.frontmatter.title}</Heading>
