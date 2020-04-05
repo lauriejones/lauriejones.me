@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import Grid from 'styled-components-grid';
-import { Margin, Padding, pt } from 'styled-components-spacing';
+import { Margin, Padding, pt, mb, py, ml, pr } from 'styled-components-spacing';
 import { graphql } from 'gatsby';
 import Heading from '../components/Heading';
 import Layout from '../components/Layout';
@@ -41,8 +41,29 @@ const CircleImage = styled.img`
 `;
 
 const Box = styled.div`
+  ${py(3)};
   border-top: 2px solid ${props => props.theme.colors.lightishGrey};
-  ${pt(4)};
+  border-bottom: 2px solid ${props => props.theme.colors.lightishGrey};
+`;
+
+const FGU = styled(Grid.Unit)`
+  display: flex;
+`;
+
+const Divider = styled.div`
+  width: 100%;
+  ${pt(3)};
+  border-bottom: 2px dashed ${props => props.theme.colors.lightishGrey};
+  ${mb(3)};
+
+  ${breakpoint('lg')`
+    ${pt(0)};
+    ${mb(0)};
+      border-bottom: none;
+      border-left: 2px solid ${props => props.theme.colors.lightishGrey};
+      ${pr(3)};
+      ${ml(3)};
+  `}
 `;
 
 const SHARED_SPACING_VALUE = 4;
@@ -81,9 +102,8 @@ const IndexPage = ({ data, theme }) => {
                 </Copy>
 
                 <Copy>
-                  Professionally happiest at the intersection of UX and UI.
-                  Passionate about enabling teams to build consistent,
-                  high-quality and inclusive user interfaces.
+                  Design systems are my JAM. Stack components are the correct
+                  way to space children. Constantly making breaking changes.
                 </Copy>
 
                 <Button to="/about/">More about me &#x2192;</Button>
@@ -102,10 +122,10 @@ const IndexPage = ({ data, theme }) => {
             </HideBelowMd>
           </Grid>
 
-          <Box>
-            <Grid>
+          <Box style={{marginTop: '3rem'}}>
+            <Grid wrap={{ lg: false }}>
               <Grid.Unit size={{ lg: 0.5 }}>
-                <Stack>
+                <Stack space={2}>
                   <Heading
                     size={6}
                     component="h2"
@@ -118,8 +138,11 @@ const IndexPage = ({ data, theme }) => {
                   </Link>
                 </Stack>
               </Grid.Unit>
+              <FGU size={{ lg: 'min' }}>
+                <Divider />
+              </FGU>
               <Grid.Unit size={{ lg: 0.5 }}>
-                <Stack>
+                <Stack space={2}>
                   <Heading
                     size={6}
                     component="h2"

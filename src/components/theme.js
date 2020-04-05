@@ -50,6 +50,7 @@ const typeScale = {
   4: '1.25rem',
   5: '1rem',
   6: '.875rem',
+  7: '.75rem',
 };
 
 const lineHeights = {

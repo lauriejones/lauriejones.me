@@ -29,7 +29,7 @@ const h5 = () => css`
 `;
 
 const h6 = () => css`
-  font-size: ${props => props.theme.typeScale[6]};
+  font-size: ${props => props.theme.typeScale[7]};
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: ${props => props.theme.tracking.caps};

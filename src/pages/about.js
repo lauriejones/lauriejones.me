@@ -82,10 +82,10 @@ const AboutPage = () => (
               <Copy size="large" lineHeight="copy">
                 I have over 10 years professional experience as a web designer
                 and front-end developer. For the last 5 years I have primarily
-                focused on development whilst working alongside many talent
+                focused on development whilst working alongside many talented
                 designers at{' '}
                 <Link href="https://twitter.com/nibhealthfunds">
-                  @nibhealthfunds
+                  nib Health Funds
                 </Link>
                 .
               </Copy>
@@ -104,11 +104,7 @@ const AboutPage = () => (
               </Copy>
 
               <Copy>
-                I have been focused on building and maintaining design systems
-                as part of a small, dedicated designops team for the last 2
-                years. A theme-driven react and styled-components component
-                library, sketch symbol library, standalone tailwind CSS
-                Framework, storybook ecosystem, communications.
+                I have been focused on building and maintaining design systems as part of a small, dedicated designops team for the last 2 years. Our system consists of a theme-driven react and styled-components component library, sketch symbol library with RSS updates, standalone tailwind CSS Framework, storybook ecosystem, communications.
               </Copy>
 
               <hr />
