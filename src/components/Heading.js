@@ -4,28 +4,28 @@ import styled, { css } from 'styled-components';
 
 const h1 = () => css`
   font-size: ${props => props.theme.typeScale[1]};
-  font-weight: 400;
-  /* line-height: ${props => props.theme.lineHeight.title}; */
+  font-weight: 700;
+  line-height: ${props => props.theme.lineHeights.solidTitle};
 `;
 
 const h2 = () => css`
   font-size: ${props => props.theme.typeScale[2]};
-  font-weight: 400;
+  font-weight: 700;
 `;
 
 const h3 = () => css`
   font-size: ${props => props.theme.typeScale[3]};
-  font-weight: 400;
+  font-weight: 700;
 `;
 
 const h4 = () => css`
   font-size: ${props => props.theme.typeScale[4]};
-  font-weight: 400;
+  font-weight: 700;
 `;
 
 const h5 = () => css`
   font-size: ${props => props.theme.typeScale[5]};
-  font-weight: 400;
+  font-weight: 700;
 `;
 
 const h6 = () => css`
@@ -56,7 +56,7 @@ const Heading = styled(BaseHeadingComponent)`
     `};
 
   margin: 0;
-  line-height: 1.25;
+  line-height: ${props => props.theme.lineHeights.title};
   ${({ size }) => size === 1 && h1()}
   ${({ size }) => size === 2 && h2()}
   ${({ size }) => size === 3 && h3()}

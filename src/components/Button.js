@@ -8,32 +8,38 @@ import { colors } from './theme';
 
 const Button = styled.button`
   display: inline-block;
-  ${py(3)};
-  ${px(4)};
+  ${py(2)};
+  ${px(3)};
   background-color: ${props => props.theme.link.color};
+  background-color: ${props => props.theme.colors.blue};
   /* background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red); */
 
-  background: linear-gradient(to bottom, #f2f2f2, #ddd);
+  /* background: ${props =>
+    `linear-gradient(to bottom, ${props.theme.colors.blue}, ${props.theme.colors.darkBlue})`}; */
   
-  /* background-color: ${props => props.theme.colors.black87}; */
-  /* color: white; */
+  color: ${props => props.theme.colors.black87};
+  color: white;
   box-shadow: 
-    inset 0 0 0 .0625rem ${props => props.theme.colors.black06}, 
-    0 1px 4px 0 rgba(0, 0, 0, .1), 
-    0 2px 8px 0 rgba(0, 0, 0, .05)
+    inset 0 0 0 .0625rem hsla(217, 62%, 16%, .1), 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
   ;
   /* border: .0625rem solid ${props => props.theme.colors.black06}; */
-  color: ${props => props.theme.colors.black87};
+  /* color: ${props => props.theme.colors.black87}; */
+  /* color: ${props => props.theme.colors.darkBlue}; */
   font-family: ${({ theme }) =>
     (theme.copy && theme.copy.fontFamily) || 'sans-serif'};
+    font-size: ${({ theme }) => theme.typeScale[6]};
   font-weight: 500;
   text-decoration: none;
-  border-radius: .5rem;
+  border-radius: .125rem;
+  transition: all .2s ease-in-out;
 
   &:focus,
   &:hover {
-    background-color: ${props => props.theme.link.focus};
-    color: ${props => props.theme.colors.darkBlue};
+    /* background-color: ${props => props.theme.colors.darkBlue}; */
+    /* color: ${props => props.theme.link.focus}; */
+    transform: translateY(-1px);
   }
 `;
 

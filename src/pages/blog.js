@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
 import Layout from '../components/Layout';
-import Copy from '../components/Copy';
+import Text from '../components/Text';
 import Heading from '../components/Heading';
 import Link from '../components/Link';
 import Panel from '../components/Panel';
@@ -28,7 +28,7 @@ const ListItem = styled.li`
   ${List} > & + & {
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 2px dashed rgba(0, 0, 0, 0.1);
   }
 `;
 
@@ -43,27 +43,32 @@ const BlogIndex = ({ data }) => {
       <Panel>
         <div>
           <PageHeader>
-            <Heading size={1}>Personal blog</Heading>
-            <Copy color={props => props.theme.colors.black54}>
+            <Heading size={1}>Personal blog &mdash;</Heading>
+            <Text color={props => props.theme.colors.black54}>
               Written for me, but maybe also for you.{' '}
               <span aria-hidden>✨</span>
-            </Copy>
+            </Text>
           </PageHeader>
 
           <List>
             {posts.map(({ node: post }) => (
               <ListItem key={post.id}>
                 <Stack>
-                  <Heading size={2}>
-                    <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
+                  <Heading size={2} as="h2">
+                    <Link
+                      to={post.fields.slug}
+                    >
+                      {post.frontmatter.title}
+                    </Link>
                   </Heading>
-                  {/* <Copy>{post.excerpt}</Copy> */}
-                  <Copy
+                  <Text>{post.excerpt}</Text>
+                  <Text
                     size="small"
                     color={props => props.theme.colors.black54}
+                    as="time"
                   >
                     {post.frontmatter.date}
-                  </Copy>
+                  </Text>
                 </Stack>
               </ListItem>
             ))}

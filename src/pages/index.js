@@ -1,17 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
-import Grid from 'styled-components-grid';
 import { Margin, Padding, pt, mb, py, ml, pr } from 'styled-components-spacing';
 import { graphql } from 'gatsby';
+import Grid from '../components/Grid';
 import Heading from '../components/Heading';
 import Layout from '../components/Layout';
 import Button from '../components/Button';
 import Link from '../components/Link';
 import Panel from '../components/Panel';
-import Copy from '../components/Copy';
+import Text from '../components/Text';
 import Stack from '../components/Stack';
-import headshot from '../assets/lauriejones.jpg';
+import headshot from '../assets/2020-sml.jpg';
+import { MESH_URL } from '../constants';
 
 const HideBelowMd = styled.div`
   display: none;
@@ -35,15 +36,32 @@ const CenteredBelowMd = styled.div`
 
 const CircleImage = styled.img`
   display: inline-block;
-  width: 11.25rem;
-  height: 11.25rem;
-  border-radius: 50%;
+  width: 12.5rem;
+  position: relative;
 `;
+
+const Wrap = styled.div`
+  position: relative;
+
+  ::before {
+    content: '';
+    background: ${props => props.theme.colors.black06};
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: rotate(10deg);
+  }
+`;
+
+const boxBorder = css`2px dashed ${props => props.theme.colors.lightishGrey}`;
 
 const Box = styled.div`
   ${py(3)};
-  border-top: 2px solid ${props => props.theme.colors.lightishGrey};
-  border-bottom: 2px solid ${props => props.theme.colors.lightishGrey};
+  border-top: ${boxBorder};
+  border-bottom: ${boxBorder};
 `;
 
 const FGU = styled(Grid.Unit)`
@@ -66,6 +84,16 @@ const Divider = styled.div`
   `}
 `;
 
+const Strong = styled.strong`
+  /* background-color: ${props => props.theme.focus}; */
+  /* background: ${props =>
+    `linear-gradient(${props.theme.colors.blue}, ${props.theme.colors.blue})`};
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent; */
+`;
+
 const SHARED_SPACING_VALUE = 4;
 
 const IndexPage = ({ data, theme }) => {
@@ -76,35 +104,25 @@ const IndexPage = ({ data, theme }) => {
     <Layout>
       <Panel>
         <Stack space={SHARED_SPACING_VALUE}>
-          <HideAboveMd>
-            <Margin bottom={3}>
-              <CenteredBelowMd>
-                <CircleImage
-                  src={headshot}
-                  alt="A headshot of Laurie Jones with tropical plants in the background"
-                />
-              </CenteredBelowMd>
-            </Margin>
-          </HideAboveMd>
-
-          <Heading size={2} as="h1">
-            <strong>Laurie Jones</strong> &mdash; front&ndash;end developer and
+          <Heading size={1} as="h1">
+            <Strong>Laurie Jones</Strong> &mdash; front&ndash;end developer and
             designer based in Newcastle, Australia.
           </Heading>
 
           <Grid wrap={false}>
             <Grid.Unit size={{ lg: 'min' }}>
               <Stack space={SHARED_SPACING_VALUE}>
-                <Copy size="large">
+                <Text size="large">
                   Professionally happiest at the intersection of UX and UI.
                   Passionate about enabling teams to build consistent,
                   high-quality and inclusive user interfaces.
-                </Copy>
+                </Text>
 
-                <Copy>
-                  Design systems are my JAM. Stack components are the correct
-                  way to space children. Constantly making breaking changes.
-                </Copy>
+                <Text>
+                  Design systems are my JAM. Stack components FTW. Make
+                  components more reusable and composable. Constantly making
+                  breaking changes.
+                </Text>
 
                 <Button to="/about/">More about me &#x2192;</Button>
               </Stack>
@@ -113,16 +131,18 @@ const IndexPage = ({ data, theme }) => {
             <HideBelowMd>
               <Grid.Unit size={{ lg: 'min' }}>
                 <Padding left={4}>
-                  <CircleImage
-                    src={headshot}
-                    alt="A headshot of Laurie Jones with tropical plants in the background"
-                  />
+                  <Wrap>
+                    <CircleImage
+                      src={headshot}
+                      alt="A headshot of Laurie Jones with tropical plants in the background"
+                    />
+                  </Wrap>
                 </Padding>
               </Grid.Unit>
             </HideBelowMd>
           </Grid>
 
-          <Box style={{marginTop: '3rem'}}>
+          <Box style={{ marginTop: '3rem' }}>
             <Grid wrap={{ lg: false }}>
               <Grid.Unit size={{ lg: 0.5 }}>
                 <Stack space={2}>
@@ -131,7 +151,7 @@ const IndexPage = ({ data, theme }) => {
                     component="h2"
                     color={props => props.theme.colors.black54}
                   >
-                    Latest blog post:
+                    I&rsquo;m trying to blog:
                   </Heading>
                   <Link to={latestPost.fields.slug} muted>
                     {latestPost.frontmatter.title}
@@ -148,10 +168,10 @@ const IndexPage = ({ data, theme }) => {
                     component="h2"
                     color={props => props.theme.colors.black54}
                   >
-                    Working on:
+                    What I&lsquo;m working on:
                   </Heading>
                   <Link
-                    href="http://nib-kaos-public-au-static-assets.s3-website-ap-southeast-2.amazonaws.com/design-system/master/"
+                    href={MESH_URL}
                     muted
                     target="_blank"
                     rel="noopener noreferrer"

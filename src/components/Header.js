@@ -4,13 +4,15 @@ import { p, Padding } from 'styled-components-spacing';
 import { rainbowBg } from '../utils';
 import Link from './Link';
 import Logo from './Logo';
-import Copy from './Copy';
+import Text from './Text';
 
 const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(0, 0, 0, .1);
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1), 0 2px 8px 0 rgba(0, 0, 0, .05);
+  background-color: rgba(0, 0, 0, .02);
+
+  /* border-bottom: 1px solid rgba(0, 0, 0, .1); */
+  /* box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1), 0 2px 8px 0 rgba(0, 0, 0, .05); */
 
   line-height: 1;
   font-size: 0;
@@ -55,7 +57,7 @@ const Header = () => (
   <HeaderWrapper>
     <Logo fill="#333" to="/" />
     <Padding all={2}>
-      <Copy
+      <Text
         size="small"
         lineHeight="solid"
         color={props => props.theme.colors.black87}
@@ -70,7 +72,7 @@ const Header = () => (
         <NavLink to="/blog/" muted>
           Blog
         </NavLink>
-      </Copy>
+      </Text>
     </Padding>
   </HeaderWrapper>
 );

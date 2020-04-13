@@ -5,7 +5,9 @@ import { Helmet } from 'react-helmet';
 
 import Layout from '../components/Layout';
 import Stack from '../components/Stack';
-import Copy from '../components/Copy';
+import Inline from '../components/Inline';
+import Tag from '../components/Tag';
+import Text from '../components/Text';
 import Heading from '../components/Heading';
 import Link from '../components/Link';
 import Panel from '../components/Panel';
@@ -25,19 +27,31 @@ export default function PageTemplate(props) {
     children,
     ...rest
   } = props;
-  console.log('Props', props);
+  console.log('Props', mdx.frontmatter.tags);
   return (
     <Layout>
       <Helmet>
         <title>{mdx.frontmatter.title}</title>
       </Helmet>
-      <Panel>
+      <Panel width="36rem">
         <Stack>
           <Heading size={1}>{mdx.frontmatter.title}</Heading>
-          <Copy size="small" color={props => props.theme.colors.black54}>
+          <Text size="small" color={props => props.theme.colors.black54}>
             {mdx.frontmatter.date}
-          </Copy>
+          </Text>
           <MDXRenderer>{mdx.body}</MDXRenderer>
+
+          {mdx.frontmatter.tags && (
+            <>
+              <Heading size={3}>Tagged</Heading>
+              <Inline>
+                {mdx.frontmatter.tags.map(tag => (
+                  <Tag key={tag}>{tag}</Tag>
+                ))}
+              </Inline>
+            </>
+          )}
+          
           <div>
             <Link to="/blog/">&#x2190; Back to blog index</Link>
           </div>
@@ -55,6 +69,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "DD MMM, YYYY")
+        tags
       }
     }
   }

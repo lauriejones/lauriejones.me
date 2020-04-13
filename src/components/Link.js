@@ -12,14 +12,11 @@ const Link = styled.a`
     (theme.copy && theme.copy.fontFamily) || 'sans-serif'};
   text-decoration-skip: ink;
 
-  &:focus {
-    background-color: ${props => props.theme.link.focus};
-    color: ${props => props.theme.colors.darkBlue};
-  }
-
+  &:focus,
   &:hover {
-    background-color: ${props => props.theme.link.focus};
-    color: ${props => props.theme.colors.darkBlue};
+    /* background-color: ${props => props.theme.link.focus}; */
+    /* color: ${props => props.theme.colors.black87}; */
+    text-decoration: none;
   }
 `;
 

@@ -25,6 +25,8 @@ export const colors = {
   nearWhite: '#f4f4f4',
   white: '#fff',
 
+  blue75: 'hsla(217, 100%, 50%, .75)',
+
   black87: 'hsla(0, 0%, 0%, .87)',
   black54: 'hsla(0, 0%, 0%, .54)',
   black06: 'hsla(0, 0%, 0%, .06)',
@@ -55,6 +57,7 @@ const typeScale = {
 
 const lineHeights = {
   solid: 1,
+  solidTitle: 1.125,
   title: 1.25,
   copy: 1.5,
 };
@@ -81,7 +84,7 @@ const fonts = {
   `,
 };
 
-const focus = colors.yellow;
+const focus = colors.blue75;
 
 export default {
   breakpoints,
@@ -101,7 +104,7 @@ export default {
   },
 
   link: {
-    color: colors.blue,
+    color: colors.black87,
     focus,
   },
 

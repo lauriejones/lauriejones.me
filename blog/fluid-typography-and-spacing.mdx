@@ -1,0 +1,45 @@
+---
+title: Fluid typography and spacing
+date: "2020-04-12T02:00:16.775Z"
+tags: ["typography", "fluid", "responsive", "scales"]
+---
+I have had a branch called `fluid` on our typography package at work since January 2016. 
+
+Fluid typograpy is
+
+https://trentwalton.com/2012/06/19/fluid-type/
+
+Introduced to me by [Mike Riethmuller](https://twitter.com/MikeRiethmuller)
+
+Check out Mike's original article: [Precise control over responsive typography](https://www.madebymike.com.au//writing/precise-control-responsive-typography/). 
+
+Once you have you typography fluidly scaling between min and max values based upon the size of the viewport, and your spacing scale is defined in rem units you get fluid spacing for free!
+
+I had the pleasure of watching Mike present his talk on Fluid Typography at a NewcastleJS meetup back in 2018. In that talk he mentioned some of the problems he was trying to solve with this approach. 
+
+Principly, in a "responsive web design", breakpoint media query it is the screensizes around each breakpoint that the greatest strain is placed upon the layout. _"We'll stack these cards until there is room to fit 3 side-by-side"_ can result in a single column layout far beyond what is comfortable.
+
+Similar issues can arise with a single fluid `::root` font size. The growing font size might be exactly what you want for your main content, but not for your pieces of text within UI. Can fluid text and non-fluid text colocate? 
+
+What would we need to do for a component API like this to be possible?
+
+```jsx
+() => (
+  <>
+    <HeaderNav/>
+    <Fluid>
+      <h1>Page title</h1>
+      <p>Lorem ipsum</p>
+      <h2>Subheading</h2>
+      <Content/>
+     </Fluid> 
+    </Footer>
+  </>
+);
+```
+
+How could `rem` units work within fluid and non-fluid areas of the screen when they both reference the `::root` element?
+
+Do we need to look to `em` units instead? Is there a way to scope rem units to an area? What about with iframes?
+
+Is this something that could be better achieved with CSS custom properties? They would allow for the same variable to be overrode at different scopes.

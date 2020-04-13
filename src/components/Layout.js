@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import styled, { ThemeProvider, css,createGlobalStyle } from 'styled-components';
+import styled, {
+  ThemeProvider,
+  css,
+  createGlobalStyle,
+} from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
+import { p } from 'styled-components-spacing';
 import styledNormalize from 'styled-normalize';
 
 import favIcon from '../assets/favicons/favicon.ico';
@@ -25,6 +30,14 @@ const Globals = createGlobalStyle`
 
   *:focus {
     outline: ${props => css`3px solid ${props.theme.focus}`};
+    outline-offset: .125em;
+  }
+
+  ::selection {
+    background: ${props => props.theme.focus}; /* WebKit/Blink Browsers */
+  }
+  ::-moz-selection {
+    background: ${props => props.theme.focus}; /* Gecko Browsers */
   }
 
   body {
@@ -38,14 +51,14 @@ const Globals = createGlobalStyle`
 `;
 
 const Layout = styled.div`
-  @supports (display: grid) {
-    /* display: grid; */
-    grid-template-columns: 1fr;
-    grid-template-rows: 3rem 1fr 3rem;
-  }
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  /* @supports (display: grid) {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 3rem 1fr 3rem;
+        } */
 `;
 
 const Content = styled.main`
@@ -53,8 +66,10 @@ const Content = styled.main`
   justify-content: flex-start;
   align-items: center;
   flex-grow: 1;
+  flex-wrap: wrap;
 
-  @supports (display: grid) {
+  /* @supports (display: grid) {
+    display: grid;
     grid-row: 2 / span 1;
     grid-column: 1 / span 2;
 
@@ -62,7 +77,7 @@ const Content = styled.main`
       grid-row: 1 / span 3;
       grid-column: 2 / span 1;
     `}
-  }
+  } */
 `;
 
 const SkipLink = styled(Link)`
@@ -70,6 +85,10 @@ const SkipLink = styled(Link)`
   left: -9999em;
   outline: none;
   top: -9999em;
+
+  ${p(3)};
+  background-color: ${props => props.theme.colors.yellow};
+  outline: ${props => css`3px solid ${props.theme.focus}`};
 
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
@@ -91,8 +110,10 @@ const TemplateWrapper = ({ children }) => (
   <ThemeProvider theme={theme}>
     <div>
       <Globals />
-      <FluidRootFontSize/>
-      <SkipLink href="#maincontent">Skip to main content</SkipLink>
+      <FluidRootFontSize />
+      <SkipLink href="#maincontent" muted>
+        Skip to main content
+      </SkipLink>
       <Layout>
         <Helmet titleTemplate="%s &middot; Laurie Jones">
           <html lang="en-AU" />

@@ -5,7 +5,7 @@ import { spacing } from './theme';
 
 const Inline = styled.div`
   /* Negative margin to offset the extraneous margin-bottom on the last row of inline elements */
-  margin-bottom: -1rem;
+  /* margin-bottom: -1rem; */
 
   > *:not(:last-child) {
     ${props => mb(props.space)};

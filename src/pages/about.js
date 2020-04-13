@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
-import Grid from 'styled-components-grid';
-import { Margin, Padding, px, py } from 'styled-components-spacing';
 import { Helmet } from 'react-helmet';
+import Grid from '../components/Grid';
 import Heading from '../components/Heading';
 import Layout from '../components/Layout';
 import Inline from '../components/Inline';
 import Stack from '../components/Stack';
 import Link from '../components/Link';
 import Panel from '../components/Panel';
-import Copy from '../components/Copy';
-import headshot from '../assets/lauriejones.jpg';
+import Tag from '../components/Tag';
+import Text from '../components/Text';
+import headshot from '../assets/2020-sml.jpg';
+import { MESH_URL } from '../constants';
 
 const HideBelowMd = styled.div`
   display: none;
@@ -20,40 +21,20 @@ const HideBelowMd = styled.div`
   `}
 `;
 
-const HideAboveMd = styled.div`
-  ${breakpoint('md')`
-    display: none;
-  `}
-`;
-
-const CenteredBelowMd = styled.div`
-  text-align: center;
-  ${breakpoint('md')`
-    text-align: left;
-  `}
-`;
-
 const Image = styled.img`
-  display: inline-block;
-  /* width: 11.25rem; */
-  /* height: 11.25rem; */
-  /* border-radius: 50%; */
+  object-fit: contain;
+  width: 100%;
+  max-height: 100%;
 `;
 
-const Timeframe = styled(Copy)`
-  color: ${props => props.theme.colors.black54};
-`;
+// const Timeframe = styled(Text)`
+//   color: ${props => props.theme.colors.black54};
+// `;
 
-const Tag = styled.span`
-  ${px(3)};
-  ${py(2)};
-  display: inline-block;
-  border: 2px solid ${props => props.theme.colors.black54};
-  border-radius: 100px;
-
-  /* background-color: ${props => props.theme.colors.black06}; */
-  font-size: ${props => props.theme.typeScale[6]};
-  line-height: ${props => props.theme.lineHeights.solid};
+const CssGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 4rem;
 `;
 
 const AboutPage = () => (
@@ -63,34 +44,18 @@ const AboutPage = () => (
     </Helmet>
     <Panel>
       <Stack space={4}>
-        <HideAboveMd>
-          <Margin bottom={3}>
-            <CenteredBelowMd>
-              <Image
-                src={headshot}
-                alt="A headshot of Laurie Jones with tropical plants in the background"
-              />
-            </CenteredBelowMd>
-          </Margin>
-        </HideAboveMd>
-
         <Heading size={1}>About &mdash;</Heading>
 
-        <Grid wrap={false}>
+        <CssGrid>
           <Grid.Unit size={{ lg: 'min' }}>
             <Stack space={4}>
-              <Copy size="large" lineHeight="copy">
-                I have over 10 years professional experience as a web designer
-                and front-end developer. For the last 5 years I have primarily
-                focused on development whilst working alongside many talented
-                designers at{' '}
-                <Link href="https://twitter.com/nibhealthfunds">
-                  nib Health Funds
-                </Link>
-                .
-              </Copy>
+              <Text size="large">
+                I&apos;m Laurie Jones from Newcastle, Autralia and I have over
+                ten years experience as a designer and front-end developer. I am
+                passionate about building inclusive web interfaces.
+              </Text>
 
-              <Copy>
+              <Text>
                 I am most comfortable working on the{' '}
                 <em>
                   &ldquo;
@@ -101,15 +66,38 @@ const AboutPage = () => (
                 </em>
                 . I have extensive experience in building semantic html,
                 maintainable css architecture in react applications.
-              </Copy>
+              </Text>
 
-              <Copy>
-                I have been focused on building and maintaining design systems as part of a small, dedicated designops team for the last 2 years. Our system consists of a theme-driven react and styled-components component library, sketch symbol library with RSS updates, standalone tailwind CSS Framework, storybook ecosystem, communications.
-              </Copy>
+              <Text>
+                I am currently leading the DesignOps team at{' '}
+                <Link
+                  href="https://twitter.com/nibhealthfunds"
+                  rel="noopener noreferrer"
+                >
+                  nib
+                </Link>
+                , working on building and maintaining our design system,{' '}
+                <Link href={MESH_URL} rel="noopener noreferrer">
+                  Mesh
+                </Link>
+                . We have an established react component library in use right
+                across the group.
+              </Text>
 
-              <hr />
+              <Text>
+                I love the craft of building user interfaces for the web and
+                consider myself lucky that this is a viable career.
+              </Text>
 
-              <div>
+              <Text>
+                Please{' '}
+                <Link href="https://twitter.com/laurie_jones">
+                  talk to me on twitter
+                </Link>
+                .
+              </Text>
+
+              {/* <div>
                 <Timeframe>June 2018 &mdash; current</Timeframe>
                 <Heading size={4}>
                   Senior Frontend Developer in the DesignOps team at nib
@@ -130,38 +118,53 @@ const AboutPage = () => (
                 </Heading>
               </div>
 
-              <hr />
+              <hr /> */}
+            </Stack>
+          </Grid.Unit>
 
+          <HideBelowMd>
+            <Image
+              src={headshot}
+              alt="A headshot of Laurie Jones with tropical plants in the background"
+            />
+          </HideBelowMd>
+        </CssGrid>
+      </Stack>
+    </Panel>
+
+    <Panel bg={props => props.theme.colors.yellow}>
+      <Stack>
+        <Grid gap="1rem">
+          <Grid.Unit size={{ lg: 0.5 }} gap="1rem">
+            <Stack>
               <Heading size={2}>Things I care about</Heading>
-
               <Inline>
-                <Tag>CSS</Tag>
                 <Tag>HTML</Tag>
+                <Tag>CSS</Tag>
                 <Tag>JS</Tag>
                 <Tag>Accessibility</Tag>
                 <Tag>Design Systems</Tag>
-                <Tag>React</Tag>
-                <Tag>Styled Components</Tag>
-                <Tag>Gatsby</Tag>
-                <Tag>Storybook</Tag>
-                <Tag>Sketch</Tag>
-                <Tag>Gatsby</Tag>
                 <Tag>UX</Tag>
                 <Tag>UI</Tag>
               </Inline>
             </Stack>
           </Grid.Unit>
+          <Grid.Unit size={{ lg: 0.5 }} gap="1rem">
+            <Stack>
+              <Heading size={2}>Tools I like</Heading>
 
-          <HideBelowMd>
-            <Grid.Unit size={{ lg: 'min' }}>
-              <Padding left={4}>
-                <Image
-                  src={headshot}
-                  alt="A headshot of Laurie Jones with tropical plants in the background"
-                />
-              </Padding>
-            </Grid.Unit>
-          </HideBelowMd>
+              <Inline>
+                <Tag>React</Tag>
+                <Tag>Styled Components</Tag>
+                <Tag>Gatsby</Tag>
+                <Tag>Storybook</Tag>
+                <Tag>Sketch</Tag>
+                <Tag>npm</Tag>
+                <Tag>Yarn</Tag>
+                <Tag>Lerna</Tag>
+              </Inline>
+            </Stack>
+          </Grid.Unit>
         </Grid>
       </Stack>
     </Panel>
