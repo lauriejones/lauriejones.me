@@ -1,14 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
-import Grid from 'styled-components-grid';
-import { Margin, Padding, px, py, mr, mb } from 'styled-components-spacing';
+import { Padding, pt, my, mb, py, ml, pr } from 'styled-components-spacing';
+import { graphql } from 'gatsby';
+import Grid from '../components/Grid';
 import Heading from '../components/Heading';
 import Layout from '../components/Layout';
+import Button from '../components/Button';
 import Link from '../components/Link';
 import Panel from '../components/Panel';
-import Copy from '../components/Copy';
-import headshot from '../assets/lauriejones.jpg';
+import Text from '../components/Text';
+import Stack from '../components/Stack';
+import headshot from '../assets/2020-sml.jpg';
+import { MESH_URL, IS_BLOG_ENABLED } from '../constants';
 
 const HideBelowMd = styled.div`
   display: none;
@@ -32,92 +36,207 @@ const CenteredBelowMd = styled.div`
 
 const CircleImage = styled.img`
   display: inline-block;
-  width: 11.25rem;
-  height: 11.25rem;
-  border-radius: 50%;
+  width: 12.5rem;
+  position: relative;
 `;
 
-const Tag = styled.span`
-  ${px(3)};
-  ${py(2)};
-  ${mb(1)};
-  ${mr(1)};
-  display: inline-block;
-  border-radius: 100px;
-  background-color: ${props => props.theme.colors.black06};
-  font-size: ${props => props.theme.typeScale[6]};
-  line-height: ${props => props.theme.lineHeights.solid};
+const Wrap = styled.div`
+  position: relative;
+
+  ::before {
+    content: '';
+    background: ${props => props.theme.colors.black06};
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: rotate(10deg);
+  }
 `;
 
-const IndexPage = () => (
-  <Layout>
-    <main id="maincontent">
+const boxBorder = css`
+  2px dashed ${props => props.theme.colors.lightishGrey}
+`;
+
+const Box = styled.div`
+  ${py(3)};
+  border-top: ${boxBorder};
+  border-bottom: ${boxBorder};
+
+  ${breakpoint('md')`
+    text-align: center;
+  `};
+`;
+
+const FGU = styled(Grid.Unit)`
+  display: flex;
+`;
+
+const Divider = styled.div`
+  width: 100%;
+  ${pt(3)};
+  border-bottom: 2px dashed ${props => props.theme.colors.lightishGrey};
+  ${mb(3)};
+
+  ${breakpoint('md')`
+    ${pt(0)};
+    ${my(2)};
+    ${pr(3)};
+    ${ml(3)};
+    border-bottom: none;
+    border-left: 2px solid ${props => props.theme.colors.lightishGrey};
+  `};
+`;
+
+const Strong = styled.strong`
+  /* background-color: ${props => props.theme.focus}; */
+  /* background: ${props =>
+    `linear-gradient(${props.theme.colors.blue}, ${props.theme.colors.blue})`};
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent; */
+`;
+
+const SHARED_SPACING_VALUE = 4;
+
+const IndexPage = ({ data, theme }) => {
+  const { edges: posts } = data.allMdx;
+  const latestPost = posts[0].node;
+
+  return (
+    <Layout>
       <Panel>
-        <HideAboveMd>
-          <Margin bottom={3}>
-            <CenteredBelowMd>
-              <CircleImage
-                src={headshot}
-                alt="A headshot of Laurie Jones with tropical plants in the background"
-              />
-            </CenteredBelowMd>
-          </Margin>
-        </HideAboveMd>
-
-        <Margin bottom={4}>
-          <Heading size={2}>
-            <strong>Laurie Jones</strong> &mdash; front&ndash;end developer and
+        <Stack space={SHARED_SPACING_VALUE}>
+          <Heading size={1} as="h1">
+            <Strong>Laurie Jones</Strong> &mdash; front&ndash;end developer and
             designer based in Newcastle, Australia.
           </Heading>
-        </Margin>
 
-        <Grid wrap={false}>
-          <Grid.Unit size={{ lg: 'min' }}>
-            <Margin bottom={3}>
-              <Copy size="large" lineHeight="copy">
-                Currently working in DesignOps at{' '}
-                <Link href="https://twitter.com/nibhealthfunds">
-                  @nibhealthfunds
-                </Link>
-                . Focused on improving our{' '}
-                <Link href="https://design.nib.com.au">design system</Link>,
-                tooling and processes.
-              </Copy>
-            </Margin>
-
-            <Margin bottom={4}>
-              <Copy>
-                Passionate about empowering teams to quickly build consistent,
-                high-quality and inclusive user interfaces.
-              </Copy>
-            </Margin>
-
-            <Tag>CSS</Tag>
-            <Tag>HTML</Tag>
-            <Tag>JS</Tag>
-            <Tag>Accessibility</Tag>
-            <Tag>Design Systems</Tag>
-            <Tag>React</Tag>
-            <Tag>Styled Components</Tag>
-            <Tag>Gatsby</Tag>
-            <Tag>UX</Tag>
-            <Tag>UI</Tag>
-          </Grid.Unit>
-
-          <HideBelowMd>
+          <Grid wrap={false}>
             <Grid.Unit size={{ lg: 'min' }}>
-              <Padding left={4}>
-                <CircleImage
-                  src={headshot}
-                  alt="A headshot of Laurie Jones with tropical plants in the background"
-                />
-              </Padding>
+              <Stack space={SHARED_SPACING_VALUE}>
+                <Text size="large">
+                  Professionally happiest at the intersection of UX and UI.
+                  Passionate about enabling teams to build consistent,
+                  high-quality and inclusive user interfaces.
+                </Text>
+
+                <Text>
+                  Design systems are my JAM. Stack components are life-changing.
+                  Striving for composibilty and reusability. Constantly making
+                  breaking changes.
+                </Text>
+
+                <Button to="/about/">More about me &#x2192;</Button>
+              </Stack>
             </Grid.Unit>
-          </HideBelowMd>
-        </Grid>
+
+            <HideBelowMd>
+              <Grid.Unit size={{ lg: 'min' }}>
+                <Padding left={4}>
+                  <Wrap>
+                    <CircleImage
+                      src={headshot}
+                      alt="A headshot of Laurie Jones with tropical plants in the background"
+                    />
+                  </Wrap>
+                </Padding>
+              </Grid.Unit>
+            </HideBelowMd>
+          </Grid>
+
+          {IS_BLOG_ENABLED && (
+            <Box style={{ marginTop: '3rem' }}>
+              <Grid wrap={{ md: false }}>
+                <Grid.Unit size={{ md: 0.5 }}>
+                  <Stack space={0}>
+                    <Heading
+                      size={6}
+                      component="h2"
+                      color={props => props.theme.colors.black54}
+                    >
+                      I&apos;m trying to blog:
+                    </Heading>
+                    <Link to={latestPost.fields.slug} muted>
+                      {latestPost.frontmatter.title}
+                    </Link>
+                  </Stack>
+                </Grid.Unit>
+                <FGU size={{ md: 'min' }}>
+                  <Divider />
+                </FGU>
+                <Grid.Unit size={{ md: 0.5 }}>
+                  <Stack space={0}>
+                    <Heading
+                      size={6}
+                      component="h2"
+                      color={props => props.theme.colors.black54}
+                    >
+                      I&apos;m working on:
+                    </Heading>
+                    <Link
+                      href={MESH_URL}
+                      muted
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Mesh Design System
+                    </Link>
+                  </Stack>
+                </Grid.Unit>
+                <FGU size={{ md: 'min' }}>
+                  <Divider />
+                </FGU>
+                <Grid.Unit size={{ md: 0.5 }}>
+                  <Stack space={0}>
+                    <Heading
+                      size={6}
+                      component="h2"
+                      color={props => props.theme.colors.black54}
+                    >
+                      I&apos;m listening to:
+                    </Heading>
+                    <Link
+                      href={MESH_URL}
+                      muted
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Anthem - Father John Misty
+                    </Link>
+                  </Stack>
+                </Grid.Unit>
+              </Grid>
+            </Box>
+          )}
+        </Stack>
       </Panel>
-    </main>
-  </Layout>
-);
+    </Layout>
+  );
+};
+
+export const IndexPageQuery = graphql`
+  query latestPost {
+    allMdx(
+      filter: { frontmatter: { draft: { ne: true } } }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 1
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;

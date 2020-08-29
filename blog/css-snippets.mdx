@@ -1,0 +1,80 @@
+---
+title: CSS Snippets
+date: "2020-06-14T03:26:51.548Z"
+tags: ["design systems", "css"]
+draft: true
+---
+We have a design system built in react and the css-in-js solution, styled components.
+
+With layout components, and 50+ components, we rarely need to write CSS.
+
+Utilities / primitives.
+
+## Components, mixins and primitives
+
+Three approaches to the same problem. Let's take a simple concern like centering some text and walk through how each would approach it.
+
+### Components
+
+
+
+```jsx
+const Center = styled.p`
+  text-align: center;
+`;
+```
+
+```jsx
+import {Center} from './components';
+
+<Center>
+  I'm centred!
+</Center>
+```
+
+### Mixins
+
+
+```jsx
+const Center = css`
+  text-align: center;
+`;
+```
+
+```jsx
+import {textCenter} from './mixins';
+
+const MyParagraph = styled.p`
+  ${textCenter};
+`;
+
+<MyParagraph>
+  I'm centred!
+</MyParagraph>
+```
+
+### Primitives (core props available across the system)
+
+Primitives are a core system of props that can be made available to your components.
+
+This predictability of API is extremely powerful. It's also 
+
+[Styled System](#) and [ThemeUI](#) both 
+
+```jsx
+import {Text} from './components';
+
+<Text align="center" color="brand.500">
+  I'm centred! And blue!
+</Text>
+```
+
+The greatest strength of this approach is the predictability of the API means when you need to change the alignment and color of another system component, you already know how:
+
+```jsx
+import {Box} from './components';
+
+<Box align="center" color="grey.300">
+  I'm centred! And grey!
+</Box>
+```

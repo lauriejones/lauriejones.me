@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { colors } from '../components/Theme';
+import { colors } from '../components/theme';
 
 export const rainbowBg = keyframes`
   0% {

@@ -1,0 +1,40 @@
+---
+title: Appending metadata to file links
+date: "2020-03-28T07:09:06.433Z"
+tags: ["a11y", "react"]
+draft: true
+---
+When linking to a file such as a pdf or zip file it is important to signal to users that this link will behave differently to a typical link. 
+
+The file size of the linked asset can also be an important consideration for many users. By not disclosing this information to your users you are taking away their ability to make an informed decision about whther to follow the link or not.
+
+For users on a limited data plan, or a phone with 95% of its storage full, knowning the size of the file
+
+Come to think of it, knowing the how big the thing you're about to navigate to in general would be great. It is not so simple with a dynamic thing like a website. Who knows how many hundred kilobytes third-parties are sprinkling heavy-handedly over everything.
+
+I suppose the idea behind showing this information to users
+
+These are links to things that can trigger a _download_ depending on the browser you are using. So the size of the asset 
+
+
+The best practice of appending the file type and size to the end of a link label has been around for years.
+
+Working on a recent project at nib this pattern came up. The designers Sam and JP were wanting to do things the right way with accessibility in mind and added this meta data to links in prototypes.
+
+It was questioned by some stakeholders, but widely accepted when the justification was explained. 
+
+There is a hidden trickyness however with this seemingly simple addition to a handful of links to pdfs: **We didn't own these particular pdfs.**
+
+The documents did not live within the same codebase and they are not maintained by us. They are owned by the legal and marketing departments who can and will update them independantly of us and our solution.
+
+Which means the hardcoded filesize is unlikely to remain accurate over time, and an incorrect hint at file size could lead to a worse user experience than no hint at all.
+
+With this in mind we decided to include the file type in the links, but omitted the file size. The story was descoped and we carried on.
+
+It did get me thinking about how could we make this file size dynamic?
+
+After some googling I came across `HEAD` requests which are like `GET` requests, but cheaper as they return no body, only headers. Two useful headers are the `"content-type"` and `"content-length"`.
+
+
+- lazy load as they come into view
+- 
