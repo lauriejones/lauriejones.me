@@ -12,7 +12,7 @@ import Panel from '../components/Panel';
 import Text from '../components/Text';
 import Stack from '../components/Stack';
 import headshot from '../assets/2020-sml.jpg';
-import { MESH_URL } from '../constants';
+import { MESH_URL, IS_BLOG_ENABLED } from '../constants';
 
 const HideBelowMd = styled.div`
   display: none;
@@ -148,68 +148,70 @@ const IndexPage = ({ data, theme }) => {
             </HideBelowMd>
           </Grid>
 
-          <Box style={{ marginTop: '3rem' }}>
-            <Grid wrap={{ md: false }}>
-              <Grid.Unit size={{ md: 0.5 }}>
-                <Stack space={0}>
-                  <Heading
-                    size={6}
-                    component="h2"
-                    color={props => props.theme.colors.black54}
-                  >
-                    I&apos;m trying to blog:
-                  </Heading>
-                  <Link to={latestPost.fields.slug} muted>
-                    {latestPost.frontmatter.title}
-                  </Link>
-                </Stack>
-              </Grid.Unit>
-              <FGU size={{ md: 'min' }}>
-                <Divider />
-              </FGU>
-              <Grid.Unit size={{ md: 0.5 }}>
-                <Stack space={0}>
-                  <Heading
-                    size={6}
-                    component="h2"
-                    color={props => props.theme.colors.black54}
-                  >
-                    I&apos;m working on:
-                  </Heading>
-                  <Link
-                    href={MESH_URL}
-                    muted
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Mesh Design System
-                  </Link>
-                </Stack>
-              </Grid.Unit>
-              <FGU size={{ md: 'min' }}>
-                <Divider />
-              </FGU>
-              <Grid.Unit size={{ md: 0.5 }}>
-                <Stack space={0}>
-                  <Heading
-                    size={6}
-                    component="h2"
-                    color={props => props.theme.colors.black54}
-                  >
-                    I&apos;m listening to:
-                  </Heading>
-                  <Link
-                    href={MESH_URL}
-                    muted
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Anthem - Father John Misty
-                  </Link>
-                </Stack>
-              </Grid.Unit>
-            </Grid>
-          </Box>
+          {IS_BLOG_ENABLED && (
+            <Box style={{ marginTop: '3rem' }}>
+              <Grid wrap={{ md: false }}>
+                <Grid.Unit size={{ md: 0.5 }}>
+                  <Stack space={0}>
+                    <Heading
+                      size={6}
+                      component="h2"
+                      color={props => props.theme.colors.black54}
+                    >
+                      I&apos;m trying to blog:
+                    </Heading>
+                    <Link to={latestPost.fields.slug} muted>
+                      {latestPost.frontmatter.title}
+                    </Link>
+                  </Stack>
+                </Grid.Unit>
+                <FGU size={{ md: 'min' }}>
+                  <Divider />
+                </FGU>
+                <Grid.Unit size={{ md: 0.5 }}>
+                  <Stack space={0}>
+                    <Heading
+                      size={6}
+                      component="h2"
+                      color={props => props.theme.colors.black54}
+                    >
+                      I&apos;m working on:
+                    </Heading>
+                    <Link
+                      href={MESH_URL}
+                      muted
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Mesh Design System
+                    </Link>
+                  </Stack>
+                </Grid.Unit>
+                <FGU size={{ md: 'min' }}>
+                  <Divider />
+                </FGU>
+                <Grid.Unit size={{ md: 0.5 }}>
+                  <Stack space={0}>
+                    <Heading
+                      size={6}
+                      component="h2"
+                      color={props => props.theme.colors.black54}
+                    >
+                      I&apos;m listening to:
+                    </Heading>
+                    <Link
+                      href={MESH_URL}
+                      muted
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Anthem - Father John Misty
+                    </Link>
+                  </Stack>
+                </Grid.Unit>
+              </Grid>
+            </Box>
+          )}
         </Stack>
       </Panel>
     </Layout>

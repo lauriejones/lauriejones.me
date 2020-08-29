@@ -5,6 +5,7 @@ import { rainbowBg } from '../utils';
 import Link from './Link';
 import Logo from './Logo';
 import Text from './Text';
+import { IS_BLOG_ENABLED } from '../constants';
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -85,15 +86,19 @@ const Header = () => (
         color={props => props.theme.colors.black87}
         component={Nav}
       >
-        <NavLink to="/" muted>
-          Home
-        </NavLink>
+        {IS_BLOG_ENABLED && (
+          <NavLink to="/" muted>
+            Home
+          </NavLink>
+        )}
         <NavLink to="/about/" muted>
           About
         </NavLink>
-        <NavLink to="/blog/" muted>
-          Blog
-        </NavLink>
+        {IS_BLOG_ENABLED && (
+          <NavLink to="/blog/" muted>
+            Blog
+          </NavLink>
+        )}
       </Text>
     </Padding>
   </HeaderWrapper>

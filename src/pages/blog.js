@@ -84,11 +84,11 @@ const BlogIndex = ({ data }) => {
 
 export const pageQuery = graphql`
   query blogIndex {
+    # Toggle comment on filter line to see drafts in blog list
     allMdx(
       sort: { fields: frontmatter___date, order: DESC }
-    ) # Toggle comment on below line to see drafts in blog list
-    # filter: { frontmatter: { draft: { ne: true } } }
-    {
+      filter: { frontmatter: { draft: { ne: true } } } 
+    ) {
       edges {
         node {
           id
