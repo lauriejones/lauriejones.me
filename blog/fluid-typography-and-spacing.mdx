@@ -2,6 +2,7 @@
 title: Fluid typography and spacing
 date: "2020-04-12T02:00:16.775Z"
 tags: ["typography", "fluid", "responsive", "scales"]
+draft: true
 ---
 I have had a branch called `fluid` on our typography package at work since January 2016. 
 
@@ -19,7 +20,7 @@ I had the pleasure of watching Mike present his talk on Fluid Typography at a Ne
 
 Principly, in a "responsive web design", breakpoint media query it is the screensizes around each breakpoint that the greatest strain is placed upon the layout. _"We'll stack these cards until there is room to fit 3 side-by-side"_ can result in a single column layout far beyond what is comfortable.
 
-Similar issues can arise with a single fluid `::root` font size. The growing font size might be exactly what you want for your main content, but not for your pieces of text within UI. Can fluid text and non-fluid text colocate? 
+Similar issues can arise with a single fluid `::root` font size. The growing font size might be exactly what you want for your main content, but not for your pieces of text within UI. Can fluid text and non-fluid text coexist? 
 
 What would we need to do for a component API like this to be possible?
 
@@ -43,3 +44,51 @@ How could `rem` units work within fluid and non-fluid areas of the screen when t
 Do we need to look to `em` units instead? Is there a way to scope rem units to an area? What about with iframes?
 
 Is this something that could be better achieved with CSS custom properties? They would allow for the same variable to be overrode at different scopes.
+
+### CSS clamp
+
+There's a new kid on the block with a much shorter, and slightly more grokable syntax.
+
+https://twitter.com/stefanjudis/status/1252140444231712769
+
+```css
+h1 {
+  font-size: clamp(1rem, 1em + 2vw, 3rem);
+}
+```
+
+The first argument is the minimum desired font-size and the third arguments is the maximum. The secondargument is where you provide a dynamic value that should scale based on the viewport size.
+
+The `clamp` function is not supported in IE11 so you'll need to provide a fallback for IE users:
+
+```css
+h1 {
+  font-size: 1rem;
+  font-size: clamp(1rem, 1em + 2vw, 3rem);
+}
+```
+
+In the spirit of progressive enhancement I'd argue the above is sufficient to ensure older browsers have an adequate experience. 
+
+You could go further and add manual breakpoints to provide responsive font sizing for older browsers but this would require some duplication to avoid specificity issues for modern browsers.
+
+```css
+h1 {
+  font-size: 1rem;
+  font-size: clamp(1rem, 1em + 2vw, 3rem);
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 2rem;
+    font-size: clamp(1rem, 1em + 2vw, 3rem); /* Duplicated to heighten specificity */
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 3rem;
+    font-size: clamp(1rem, 1em + 2vw, 3rem); /* Duplicated to heighten specificity */
+  }
+}
+```

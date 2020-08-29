@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Margin } from 'styled-components-spacing';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
@@ -15,7 +16,11 @@ const PageHeader = styled.div`
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin-bottom: 2rem;
+
+  > * {
+  }
 `;
 
 const List = styled.ul`
@@ -28,7 +33,7 @@ const ListItem = styled.li`
   ${List} > & + & {
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 2px dashed rgba(0, 0, 0, 0.1);
+    border-top: 0.125rem dashed rgba(0, 0, 0, 0.1);
   }
 `;
 
@@ -44,10 +49,12 @@ const BlogIndex = ({ data }) => {
         <div>
           <PageHeader>
             <Heading size={1}>Personal blog &mdash;</Heading>
-            <Text color={props => props.theme.colors.black54}>
-              Written for me, but maybe also for you.{' '}
-              <span aria-hidden>✨</span>
-            </Text>
+            <Margin top={{ xs: 3, xl: 0 }}>
+              <Text color={props => props.theme.colors.black54}>
+                Written for me, but maybe also for you.{' '}
+                <span aria-hidden>✨</span>
+              </Text>
+            </Margin>
           </PageHeader>
 
           <List>
@@ -55,11 +62,7 @@ const BlogIndex = ({ data }) => {
               <ListItem key={post.id}>
                 <Stack>
                   <Heading size={2} as="h2">
-                    <Link
-                      to={post.fields.slug}
-                    >
-                      {post.frontmatter.title}
-                    </Link>
+                    <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
                   </Heading>
                   <Text>{post.excerpt}</Text>
                   <Text
@@ -81,7 +84,11 @@ const BlogIndex = ({ data }) => {
 
 export const pageQuery = graphql`
   query blogIndex {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+    allMdx(
+      sort: { fields: frontmatter___date, order: DESC }
+    ) # Toggle comment on below line to see drafts in blog list
+    # filter: { frontmatter: { draft: { ne: true } } }
+    {
       edges {
         node {
           id

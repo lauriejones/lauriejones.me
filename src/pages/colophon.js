@@ -46,7 +46,7 @@ const ColophonPage = () => (
         <Text>
           Site hosted by{' '}
           <ExternalLink href="https://www.netlify.com/">Netlify</ExternalLink>,
-          code by{' '}
+          code at{' '}
           <ExternalLink href="https://www.github.com/">GitHub</ExternalLink>.
         </Text>
 

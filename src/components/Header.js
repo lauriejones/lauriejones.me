@@ -11,6 +11,8 @@ const HeaderWrapper = styled.header`
   justify-content: space-between;
   background-color: rgba(0, 0, 0, .02);
 
+  overflow: hidden;
+
   /* border-bottom: 1px solid rgba(0, 0, 0, .1); */
   /* box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1), 0 2px 8px 0 rgba(0, 0, 0, .05); */
 
@@ -34,10 +36,26 @@ const NavLink = styled(Link)`
   text-decoration: none;
   position: relative;
 
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -1.2rem;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(45deg);
+    width: 0.4rem;
+    height: 0.4rem;
+    /* border-radius: 50%; */
+    background-color: white;
+    border: 0.2rem solid orange;
+    box-shadow: 0 0 0 0.2rem #ffc107;
+
+    opacity: 0.01;
+    transition: opacity ease-in-out 0.2s;
+  }
+
   &:hover,
   &:focus {
     color: ${props => props.theme.colors.blue};
-    background: none;
 
     &::after {
       content: '';
@@ -49,6 +67,10 @@ const NavLink = styled(Link)`
       height: 3px;
       background-color: currentColor;
       opacity: 0.75;
+    }
+
+    &::before {
+      opacity: 1;
     }
   }
 `;

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { spacing } from './theme';
 
 const Stack = styled.div`
-  > * + * {
+  &&& > * + * {
     ${props => mt(props.space)};
   }
 `;

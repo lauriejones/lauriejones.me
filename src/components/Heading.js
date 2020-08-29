@@ -29,7 +29,7 @@ const h5 = () => css`
 `;
 
 const h6 = () => css`
-  font-size: ${props => props.theme.typeScale[7]};
+  font-size: ${props => props.theme.typeScale[8]};
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: ${props => props.theme.tracking.caps};
@@ -47,7 +47,7 @@ export const BaseHeadingComponent = props => {
 };
 
 const Heading = styled(BaseHeadingComponent)`
-  max-width: 24em;
+  /* max-width: 24em; */
   font-family: ${props => props.theme.copy.fontFamily};
   ${props =>
     props.color &&

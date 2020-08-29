@@ -29,7 +29,7 @@ const Globals = createGlobalStyle`
   ${styledNormalize}
 
   *:focus {
-    outline: ${props => css`3px solid ${props.theme.focus}`};
+    outline: ${props => css`.1875em solid ${props.theme.focus}`};
     outline-offset: .125em;
   }
 
@@ -47,6 +47,18 @@ const Globals = createGlobalStyle`
     font-family: ${props => props.theme.copy.fontFamily};
     font-size: ${props => props.theme.copy.fontSize};
     line-height: ${props => props.theme.copy.lineHeight};
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul,
+  ol {
+    margin: 0;
   }
 `;
 

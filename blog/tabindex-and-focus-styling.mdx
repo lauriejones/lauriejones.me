@@ -2,6 +2,7 @@
 title: Tabindex and focus styling
 date: "2020-03-28T02:00:16.775Z"
 tags: ["a11y", "keyboard", "focus"]
+draft: true
 ---
 In my recent mission to improve my keyboard accessibility practices I came across an interesting behaviour.
 
@@ -19,6 +20,32 @@ https://codepen.io/laurie/pen/RBQzKb
 
 
 Clicking on the element directly focuses it
+
 Clicking a jump link to the element also focuses it
 
 When trying to manage focus for your user you may need to "throw focus" to a  
+
+This was not the behaviour I expected. It can be easily resolved by removing the outline styling when focused.
+
+```css
+:focus {
+  outline: none;
+}
+```
+
+**!important:** This is a very particular scenario where removing focus styling is desired. We only want to remove this outline from the `div` or `main` or whatever other non-interactive element with a `tabIndex` specified.
+
+You could try to be clever about this with some CSS selector fanciness, but it's probably best to handle on a case-by-case basis.
+
+```css
+[tabindex='-1']:focus {
+  outline: none;
+}
+```
+
+```css
+[tabindex='-1']:not(a):not(button):not(input):focus {
+  outline: none;
+}
+```
+

@@ -15,12 +15,12 @@ export const colors = {
   blue: '#0060FF', //'#0C34FF', //'#2b97fd',
   darkBlue: '#00307F',
   purple: '#5D2CDA', // #7d5ae0
-  yellow: '#ffeb3b',
+  yellow: '#ffd400', //`#ffde00`, //'#ffeb3b',
   eigengrau: '#16161d',
   darkGrey: '#333',
   grey: '#777',
   midGrey: '#999',
-  lightishGrey: '#ddd',
+  lightishGrey: '#e6e6e6',
   lightGrey: '#eee',
   nearWhite: '#f4f4f4',
   white: '#fff',
@@ -40,9 +40,10 @@ export const spacing = {
   1: '.25rem',
   2: '.5rem',
   3: '1rem',
-  4: '2rem',
-  5: '4rem',
-  6: '8rem',
+  4: '1.5rem',
+  5: '2rem',
+  6: '4rem',
+  7: '8rem',
 };
 
 const typeScale = {
@@ -53,6 +54,7 @@ const typeScale = {
   5: '1rem',
   6: '.875rem',
   7: '.75rem',
+  8: '.66rem',
 };
 
 const lineHeights = {
@@ -64,7 +66,7 @@ const lineHeights = {
 
 const tracking = {
   normal: 'normal',
-  caps: '1.5px',
+  caps: '.1em',
 };
 
 const fonts = {

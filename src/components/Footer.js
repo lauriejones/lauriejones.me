@@ -35,10 +35,6 @@ const Footer = () => {
                 GitHub
               </Link>
               <span> &middot; </span>
-              <Link muted href="https://www.npmjs.com/~lauriejones">
-                npm
-              </Link>
-              <span> &middot; </span>
               <Link muted href="https://au.linkedin.com/in/lauriejonesme">
                 Linked In
               </Link>

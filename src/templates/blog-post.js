@@ -1,7 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { MDXProvider } from '@mdx-js/react';
 import { Helmet } from 'react-helmet';
+import { Margin } from 'styled-components-spacing';
 
 import Layout from '../components/Layout';
 import Stack from '../components/Stack';
@@ -12,13 +14,16 @@ import Heading from '../components/Heading';
 import Link from '../components/Link';
 import Panel from '../components/Panel';
 
-const components = {
+const Emoji = props => <span role="img" aria-label={props.label} {...props} />;
+
+const shortcodes = {
   // h2: props => <Heading size={2} {...props} />,
   // h3: props => <Heading size={3} {...props} />,
   // h4: props => <Heading size={4} {...props} />,
   // h5: props => <Heading size={5} {...props} />,
   // h6: props => <Heading size={6} {...props} />,
   a: Link,
+  Emoji,
 };
 
 export default function PageTemplate(props) {
@@ -34,14 +39,15 @@ export default function PageTemplate(props) {
         <title>{mdx.frontmatter.title}</title>
       </Helmet>
       <Panel width="36rem">
-        <Stack>
-          <Heading size={1}>{mdx.frontmatter.title}</Heading>
+        <Stack space={4}>
+          <Heading size={1}>{mdx.frontmatter.title} &mdash;</Heading>
           <Text size="small" color={props => props.theme.colors.black54}>
             {mdx.frontmatter.date}
           </Text>
           <MDXRenderer>{mdx.body}</MDXRenderer>
+          {/* <MDXProvider components={shortcodes}>{mdx.body}</MDXProvider> */}
 
-          {mdx.frontmatter.tags && (
+          {/* {mdx.frontmatter.tags && (
             <>
               <Heading size={3}>Tagged</Heading>
               <Inline>
@@ -50,11 +56,11 @@ export default function PageTemplate(props) {
                 ))}
               </Inline>
             </>
-          )}
-          
-          <div>
+          )} */}
+
+          <Margin top={6}>
             <Link to="/blog/">&#x2190; Back to blog index</Link>
-          </div>
+          </Margin>
         </Stack>
       </Panel>
     </Layout>

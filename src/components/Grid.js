@@ -7,6 +7,13 @@ const Grid = styled(BaseGrid)`
     margin-left: -${gap};
     margin-right: -${gap};
   `}
+
+  @supports (display: grid) {
+    /* display: grid; */
+    ${({ gap }) => css`
+      gap: ${gap};
+    `}
+  }
 `;
 
 const GridUnit = styled(BaseGrid.Unit)`

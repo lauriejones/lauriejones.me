@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
-import { Margin, Padding, pt, mb, py, ml, pr } from 'styled-components-spacing';
+import { Padding, pt, my, mb, py, ml, pr } from 'styled-components-spacing';
 import { graphql } from 'gatsby';
 import Grid from '../components/Grid';
 import Heading from '../components/Heading';
@@ -56,12 +56,18 @@ const Wrap = styled.div`
   }
 `;
 
-const boxBorder = css`2px dashed ${props => props.theme.colors.lightishGrey}`;
+const boxBorder = css`
+  2px dashed ${props => props.theme.colors.lightishGrey}
+`;
 
 const Box = styled.div`
   ${py(3)};
   border-top: ${boxBorder};
   border-bottom: ${boxBorder};
+
+  ${breakpoint('md')`
+    text-align: center;
+  `};
 `;
 
 const FGU = styled(Grid.Unit)`
@@ -74,14 +80,14 @@ const Divider = styled.div`
   border-bottom: 2px dashed ${props => props.theme.colors.lightishGrey};
   ${mb(3)};
 
-  ${breakpoint('lg')`
+  ${breakpoint('md')`
     ${pt(0)};
-    ${mb(0)};
-      border-bottom: none;
-      border-left: 2px solid ${props => props.theme.colors.lightishGrey};
-      ${pr(3)};
-      ${ml(3)};
-  `}
+    ${my(2)};
+    ${pr(3)};
+    ${ml(3)};
+    border-bottom: none;
+    border-left: 2px solid ${props => props.theme.colors.lightishGrey};
+  `};
 `;
 
 const Strong = styled.strong`
@@ -119,8 +125,8 @@ const IndexPage = ({ data, theme }) => {
                 </Text>
 
                 <Text>
-                  Design systems are my JAM. Stack components FTW. Make
-                  components more reusable and composable. Constantly making
+                  Design systems are my JAM. Stack components are life-changing.
+                  Striving for composibilty and reusability. Constantly making
                   breaking changes.
                 </Text>
 
@@ -143,32 +149,32 @@ const IndexPage = ({ data, theme }) => {
           </Grid>
 
           <Box style={{ marginTop: '3rem' }}>
-            <Grid wrap={{ lg: false }}>
-              <Grid.Unit size={{ lg: 0.5 }}>
-                <Stack space={2}>
+            <Grid wrap={{ md: false }}>
+              <Grid.Unit size={{ md: 0.5 }}>
+                <Stack space={0}>
                   <Heading
                     size={6}
                     component="h2"
                     color={props => props.theme.colors.black54}
                   >
-                    I&rsquo;m trying to blog:
+                    I&apos;m trying to blog:
                   </Heading>
                   <Link to={latestPost.fields.slug} muted>
                     {latestPost.frontmatter.title}
                   </Link>
                 </Stack>
               </Grid.Unit>
-              <FGU size={{ lg: 'min' }}>
+              <FGU size={{ md: 'min' }}>
                 <Divider />
               </FGU>
-              <Grid.Unit size={{ lg: 0.5 }}>
-                <Stack space={2}>
+              <Grid.Unit size={{ md: 0.5 }}>
+                <Stack space={0}>
                   <Heading
                     size={6}
                     component="h2"
                     color={props => props.theme.colors.black54}
                   >
-                    What I&lsquo;m working on:
+                    I&apos;m working on:
                   </Heading>
                   <Link
                     href={MESH_URL}
@@ -177,6 +183,28 @@ const IndexPage = ({ data, theme }) => {
                     rel="noopener noreferrer"
                   >
                     Mesh Design System
+                  </Link>
+                </Stack>
+              </Grid.Unit>
+              <FGU size={{ md: 'min' }}>
+                <Divider />
+              </FGU>
+              <Grid.Unit size={{ md: 0.5 }}>
+                <Stack space={0}>
+                  <Heading
+                    size={6}
+                    component="h2"
+                    color={props => props.theme.colors.black54}
+                  >
+                    I&apos;m listening to:
+                  </Heading>
+                  <Link
+                    href={MESH_URL}
+                    muted
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Anthem - Father John Misty
                   </Link>
                 </Stack>
               </Grid.Unit>
@@ -190,7 +218,11 @@ const IndexPage = ({ data, theme }) => {
 
 export const IndexPageQuery = graphql`
   query latestPost {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }, limit: 1) {
+    allMdx(
+      filter: { frontmatter: { draft: { ne: true } } }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 1
+    ) {
       edges {
         node {
           frontmatter {

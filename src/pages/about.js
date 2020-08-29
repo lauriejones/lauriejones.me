@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
+import {Padding} from 'styled-components-spacing';
 import { Helmet } from 'react-helmet';
 import Grid from '../components/Grid';
 import Heading from '../components/Heading';
@@ -24,6 +25,7 @@ const HideBelowMd = styled.div`
 const Image = styled.img`
   object-fit: contain;
   width: 100%;
+  max-width: 480px;
   max-height: 100%;
 `;
 
@@ -43,6 +45,7 @@ const AboutPage = () => (
       <title>About</title>
     </Helmet>
     <Panel>
+      <Padding bottom={5}>
       <Stack space={4}>
         <Heading size={1}>About &mdash;</Heading>
 
@@ -50,9 +53,10 @@ const AboutPage = () => (
           <Grid.Unit size={{ lg: 'min' }}>
             <Stack space={4}>
               <Text size="large">
-                I&apos;m Laurie Jones from Newcastle, Autralia and I have over
-                ten years experience as a designer and front-end developer. I am
-                passionate about building inclusive web interfaces.
+                I&apos;m Laurie Jones from Newcastle, Australia and I have over
+                ten years&apos; experience as a designer and front-end developer
+                of the web. I am passionate about building inclusive user
+                interfaces to help people to get things done.
               </Text>
 
               <Text>
@@ -64,8 +68,9 @@ const AboutPage = () => (
                   </Link>
                   .&rdquo;
                 </em>
-                . I have extensive experience in building semantic html,
-                maintainable css architecture in react applications.
+                . I have extensive experience in building semantic html and
+                maintainable css architecture most recently within react
+                applications.
               </Text>
 
               <Text>
@@ -74,7 +79,7 @@ const AboutPage = () => (
                   href="https://twitter.com/nibhealthfunds"
                   rel="noopener noreferrer"
                 >
-                  nib
+                  nib Group
                 </Link>
                 , working on building and maintaining our design system,{' '}
                 <Link href={MESH_URL} rel="noopener noreferrer">
@@ -130,38 +135,38 @@ const AboutPage = () => (
           </HideBelowMd>
         </CssGrid>
       </Stack>
+      </Padding>
     </Panel>
 
-    <Panel bg={props => props.theme.colors.yellow}>
+    <Panel bg={props => props.theme.colors.yellow} decorative>
       <Stack>
         <Grid gap="1rem">
-          <Grid.Unit size={{ lg: 0.5 }} gap="1rem">
-            <Stack>
+          <Grid.Unit size={{ lg: 0.5 }} gap="2rem">
+            <Stack style={{ textAlign: 'center' }}>
               <Heading size={2}>Things I care about</Heading>
-              <Inline>
+              <Inline space={2}>
+                <Tag>Accessibility</Tag>
+                <Tag>UX</Tag>
                 <Tag>HTML</Tag>
                 <Tag>CSS</Tag>
                 <Tag>JS</Tag>
-                <Tag>Accessibility</Tag>
                 <Tag>Design Systems</Tag>
-                <Tag>UX</Tag>
                 <Tag>UI</Tag>
               </Inline>
             </Stack>
           </Grid.Unit>
-          <Grid.Unit size={{ lg: 0.5 }} gap="1rem">
-            <Stack>
-              <Heading size={2}>Tools I like</Heading>
+          <Grid.Unit size={{ lg: 0.5 }} gap="2rem">
+            <Stack style={{ textAlign: 'center' }}>
+              <Heading size={2}>Tools I like to use</Heading>
 
-              <Inline>
+              <Inline space={2}>
                 <Tag>React</Tag>
                 <Tag>Styled Components</Tag>
                 <Tag>Gatsby</Tag>
                 <Tag>Storybook</Tag>
-                <Tag>Sketch</Tag>
+                <Tag>Playroom</Tag>
                 <Tag>npm</Tag>
                 <Tag>Yarn</Tag>
-                <Tag>Lerna</Tag>
               </Inline>
             </Stack>
           </Grid.Unit>
