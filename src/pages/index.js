@@ -125,7 +125,7 @@ const IndexPage = ({ data, theme }) => {
                 </Text>
 
                 <Text>
-                  Design systems are my JAM. Stack components are life-changing.
+                  Design systems are my JAM. Stack components are <span>🤤</span>.
                   Striving for composibilty and reusability. Constantly making
                   breaking changes.
                 </Text>
