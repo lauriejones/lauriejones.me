@@ -10,7 +10,7 @@
     "gatsby": "^4.23.1",
     "gatsby-link": "^3.11.0",
     "gatsby-plugin-google-analytics": "^4.23.0",
-    "gatsby-plugin-mdx": "^2.11.0",
+    "gatsby-plugin-mdx": "^2.14.1",
     "gatsby-plugin-no-javascript": "^2.0.5",
     "gatsby-plugin-react-helmet": "^5.23.0",
     "gatsby-plugin-styled-components": "^5.23.0",
