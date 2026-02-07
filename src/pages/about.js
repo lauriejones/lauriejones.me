@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import { Padding, Margin } from 'styled-components-spacing';
 import { Helmet } from 'react-helmet';
+import Divider from '../components/Divider';
 import Grid from '../components/Grid';
 import Heading from '../components/Heading';
 import Layout from '../components/Layout';
@@ -96,8 +97,8 @@ const AboutPage = () => (
 
                 <Text>
                   If you have similar interests then I&apos;d love to{' '}
-                  <Link href="https://twitter.com/laurie_jones">
-                    chat on twitter
+                  <Link href="https://bsky.app/profile/lauriejones.bsky.social" rel="noopener noreferrer">
+                    chat on bluesky
                   </Link>
                   .
                 </Text>
@@ -121,29 +122,35 @@ const AboutPage = () => (
 
         <div>
           <Timeframe>March 2021 &mdash; current</Timeframe>
-          <Heading size={4}>
-            Lead Frontend Developer &middot; DesignOps team &middot; <Link href="https://www.nib.com.au" rel="noopener noreferrer">nib Group</Link>
+          <Heading size={4} style={{display: 'flex', justifyContent: 'space-between'}}>
+            <span>Lead Frontend Developer</span> <span>DesignOps team &middot; <Link href="https://www.nib.com.au" rel="noopener noreferrer">nib Group</Link></span>
           </Heading>
         </div>
+
+        <Divider />
 
         <div style={{opacity: 0.8}}>
           <Timeframe>June 2018 &mdash; February 2021</Timeframe>
-          <Heading size={4}>
-            Senior Frontend Developer &middot; DesignOps team &middot; <Link href="https://www.nib.com.au" rel="noopener noreferrer">nib Group</Link>
+          <Heading size={4} style={{display: 'flex', justifyContent: 'space-between'}}>
+            <span>Senior Frontend Developer</span> <span>DesignOps team &middot; <Link href="https://www.nib.com.au" rel="noopener noreferrer">nib Group</Link></span>
           </Heading>
         </div>
+
+        <Divider />
 
         <div style={{opacity: 0.7}}>
           <Timeframe>March 2015 &mdash; December 2018</Timeframe>
-          <Heading size={4}>
-            Frontend Developer &middot; Online Acquisitions team &middot; <Link href="https://www.nib.com.au" rel="noopener noreferrer">nib Group</Link>
+          <Heading size={4} style={{display: 'flex', justifyContent: 'space-between'}}>
+            <span>Frontend Developer</span> <span>Online Acquisitions team &middot; <Link href="https://www.nib.com.au" rel="noopener noreferrer">nib Group</Link></span>
           </Heading>
         </div>
 
+        <Divider />
+
         <div style={{opacity: 0.6}}>
           <Timeframe>Mar 2012 &mdash; September 2014</Timeframe>
-          <Heading size={4}>
-            Web Designer &amp; Developer &middot; <Link href="https://www.rb.com.au" rel="noopener noreferrer">Redback Solutions</Link>
+          <Heading size={4} style={{display: 'flex', justifyContent: 'space-between'}}>
+            <span>Web Designer &amp; Developer</span> <span><Link href="https://www.rb.com.au" rel="noopener noreferrer">Redback Solutions</Link></span>
           </Heading>
         </div>
       </Stack>
