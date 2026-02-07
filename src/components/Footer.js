@@ -27,8 +27,8 @@ const Footer = () => {
               lineHeight="solid"
               color={props => props.theme.colors.black87}
             >
-              <Link muted href="https://twitter.com/laurie_jones">
-                Twitter
+              <Link muted href="https://bsky.app/profile/lauriejones.bsky.social">
+                Bluesky
               </Link>
               <span> &middot; </span>
               <Link muted href="https://github.com/lauriejones">

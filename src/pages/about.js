@@ -76,7 +76,7 @@ const AboutPage = () => (
                 <Text>
                   I am currently leading the DesignOps team at{' '}
                   <Link
-                    href="https://twitter.com/nibhealthfunds"
+                    href="https://www.nib.com.au"
                     rel="noopener noreferrer"
                   >
                     nib Group
@@ -115,46 +115,39 @@ const AboutPage = () => (
       </Padding>
     </Panel>
 
-    {/* <Panel bg={props => props.theme.colors.nearWhite}>
+    <Panel bg={props => props.theme.colors.nearWhite}>
       <Stack space="4">
-        <Heading size={2}>Professional experience &mdash;</Heading>
+        <Heading size={2}>Experience &mdash;</Heading>
 
         <div>
           <Timeframe>March 2021 &mdash; current</Timeframe>
           <Heading size={4}>
-            Lead Frontend Developer in the DesignOps team at nib Group
+            Lead Frontend Developer &middot; DesignOps team &middot; <Link href="https://www.nib.com.au" rel="noopener noreferrer">nib Group</Link>
           </Heading>
         </div>
 
-        <div>
+        <div style={{opacity: 0.8}}>
           <Timeframe>June 2018 &mdash; February 2021</Timeframe>
           <Heading size={4}>
-            Senior Frontend Developer in the DesignOps team at nib Group
+            Senior Frontend Developer &middot; DesignOps team &middot; <Link href="https://www.nib.com.au" rel="noopener noreferrer">nib Group</Link>
           </Heading>
         </div>
 
-        <div>
-          <Timeframe>June 2018 &mdash; current</Timeframe>
-          <Heading size={4}>
-            Senior Frontend Developer in the DesignOps team at nib Group
-          </Heading>
-        </div>
-
-        <div>
+        <div style={{opacity: 0.7}}>
           <Timeframe>March 2015 &mdash; December 2018</Timeframe>
           <Heading size={4}>
-            Frontend Developer in the Online Acquisitions team at nib Group
+            Frontend Developer &middot; Online Acquisitions team &middot; <Link href="https://www.nib.com.au" rel="noopener noreferrer">nib Group</Link>
           </Heading>
         </div>
 
-        <div>
+        <div style={{opacity: 0.6}}>
           <Timeframe>Mar 2012 &mdash; September 2014</Timeframe>
           <Heading size={4}>
-            Web Designer &amp; Developer at Redback Solutions
+            Web Designer &amp; Developer &middot; <Link href="https://www.rb.com.au" rel="noopener noreferrer">Redback Solutions</Link>
           </Heading>
         </div>
       </Stack>
-    </Panel> */}
+    </Panel>
 
     <Panel bg={props => props.theme.colors.yellow} decorative>
       <Stack>
@@ -171,6 +164,9 @@ const AboutPage = () => (
                   <Tag>JS</Tag>
                   <Tag>Design Systems</Tag>
                   <Tag>UI</Tag>
+                  <Tag>Craft beer</Tag>
+                  <Tag>Coffee</Tag>
+                  <Tag>My family</Tag>
                 </Inline>
               </Stack>
             </Margin>
@@ -180,14 +176,14 @@ const AboutPage = () => (
               <Heading size={2}>Tools I like to use</Heading>
 
               <Inline space={2}>
+                <Tag>GitHub</Tag>
                 <Tag>React</Tag>
                 <Tag>Styled Components</Tag>
-                <Tag>Gatsby</Tag>
                 <Tag>NextJS</Tag>
-                <Tag>Storybook</Tag>
+                <Tag>Style Dictionary</Tag>
                 <Tag>Playroom</Tag>
+                <Tag>Storybook</Tag>
                 <Tag>npm</Tag>
-                <Tag>Yarn</Tag>
                 <Tag>Figma</Tag>
               </Inline>
             </Stack>

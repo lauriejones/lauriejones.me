@@ -22,7 +22,7 @@ export const colors = {
   midGrey: '#999',
   lightishGrey: '#e6e6e6',
   lightGrey: '#eee',
-  nearWhite: '#f4f4f4',
+  nearWhite: '#f7f7f7',
   white: '#fff',
 
   blue75: 'hsla(217, 100%, 50%, .75)',
