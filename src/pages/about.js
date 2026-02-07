@@ -129,27 +129,27 @@ const AboutPage = () => (
 
         <Divider />
 
-        <div style={{opacity: 0.8}}>
+        <div>
           <Timeframe>June 2018 &mdash; February 2021</Timeframe>
-          <Heading size={4} style={{display: 'flex', justifyContent: 'space-between'}}>
+          <Heading size={4} style={{display: 'flex', justifyContent: 'space-between', opacity: 0.8}}>
             <span>Senior Frontend Developer</span> <span>DesignOps team &middot; <Link href="https://www.nib.com.au" rel="noopener noreferrer">nib Group</Link></span>
           </Heading>
         </div>
 
         <Divider />
 
-        <div style={{opacity: 0.7}}>
+        <div>
           <Timeframe>March 2015 &mdash; December 2018</Timeframe>
-          <Heading size={4} style={{display: 'flex', justifyContent: 'space-between'}}>
+          <Heading size={4} style={{display: 'flex', justifyContent: 'space-between', opacity: 0.7}}>
             <span>Frontend Developer</span> <span>Online Acquisitions team &middot; <Link href="https://www.nib.com.au" rel="noopener noreferrer">nib Group</Link></span>
           </Heading>
         </div>
 
         <Divider />
 
-        <div style={{opacity: 0.6}}>
+        <div>
           <Timeframe>Mar 2012 &mdash; September 2014</Timeframe>
-          <Heading size={4} style={{display: 'flex', justifyContent: 'space-between'}}>
+          <Heading size={4} style={{display: 'flex', justifyContent: 'space-between', opacity: 0.6}}>
             <span>Web Designer &amp; Developer</span> <span><Link href="https://www.rb.com.au" rel="noopener noreferrer">Redback Solutions</Link></span>
           </Heading>
         </div>
