@@ -173,7 +173,6 @@ const AboutPage = () => (
                   <Tag>UI</Tag>
                   <Tag>Craft beer</Tag>
                   <Tag>Coffee</Tag>
-                  <Tag>My family</Tag>
                 </Inline>
               </Stack>
             </Margin>
