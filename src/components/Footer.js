@@ -4,6 +4,7 @@ import { Padding } from 'styled-components-spacing';
 import Grid from './Grid';
 import Link from './Link';
 import Text from './Text';
+import { BSKY_PROFILE_URL } from '../constants';
 
 const FooterWrapper = styled.footer`
   /* display: flex; */
@@ -27,7 +28,7 @@ const Footer = () => {
               lineHeight="solid"
               color={props => props.theme.colors.black87}
             >
-              <Link muted href="https://bsky.app/profile/lauriejones.bsky.social">
+              <Link muted href={BSKY_PROFILE_URL} rel="noopener noreferrer">
                 Bluesky
               </Link>
               <span> &middot; </span>

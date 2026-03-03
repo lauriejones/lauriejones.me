@@ -14,7 +14,7 @@ import Panel from '../components/Panel';
 import Tag from '../components/Tag';
 import Text from '../components/Text';
 import headshot from '../assets/2020-sml.jpg';
-import { MESH_URL } from '../constants';
+import { MESH_URL, BSKY_PROFILE_URL } from '../constants';
 
 const HideBelowMd = styled.div`
   display: none;
@@ -97,7 +97,7 @@ const AboutPage = () => (
 
                 <Text>
                   If you have similar interests then I&apos;d love to{' '}
-                  <Link href="https://bsky.app/profile/lauriejones.bsky.social" rel="noopener noreferrer">
+                  <Link href={BSKY_PROFILE_URL} rel="noopener noreferrer">
                     chat on bluesky
                   </Link>
                   .

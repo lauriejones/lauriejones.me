@@ -6,6 +6,7 @@ import Stack from '../components/Stack';
 import Link from '../components/Link';
 import Panel from '../components/Panel';
 import Text from '../components/Text';
+import { BSKY_PROFILE_URL } from '../constants';
 
 const AccessibilityStatementPage = () => (
   <Layout>
@@ -52,8 +53,8 @@ const AccessibilityStatementPage = () => (
         <Heading size={3}>Report an issue</Heading>
         <Text>
           If you have any trouble using this site, please{' '}
-          <Link href="https://twitter.com/laurie_jones">
-            let me know on twitter
+          <Link href={BSKY_PROFILE_URL} rel="noopener noreferrer">
+            let me know on bluesky
           </Link>
           .
         </Text>
